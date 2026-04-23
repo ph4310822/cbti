@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
+import { HeaderBar } from '../components/HeaderBar';
 
 interface HomeScreenProps {
   onStart: () => void;
@@ -15,6 +16,7 @@ interface HomeScreenProps {
 export const HomeScreen: React.FC<HomeScreenProps> = ({ onStart }) => {
   return (
     <SafeAreaView style={styles.container}>
+      <HeaderBar />
       <View style={styles.content}>
         {/* Logo / Title */}
         <View style={styles.header}>

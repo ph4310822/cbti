@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { Result, CHAIN_INFO } from '../data/questions';
+import { HeaderBar } from '../components/HeaderBar';
 
 interface ResultScreenProps {
   result: Result;
@@ -37,6 +38,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ result, onRestart })
 
   return (
     <SafeAreaView style={styles.container}>
+      <HeaderBar showBack onBack={onRestart} />
       <ScrollView
         style={styles.scrollView}
         contentContainerStyle={styles.scrollContent}

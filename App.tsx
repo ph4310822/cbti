@@ -31,7 +31,7 @@ export default function App() {
     <>
       <StatusBar style="light" />
       {screen === 'home' && <HomeScreen onStart={handleStart} />}
-      {screen === 'quiz' && <QuizScreen questions={QUESTIONS} onComplete={handleComplete} />}
+      {screen === 'quiz' && <QuizScreen questions={QUESTIONS} onComplete={handleComplete} onBack={handleRestart} />}
       {screen === 'result' && result && <ResultScreen result={result} onRestart={handleRestart} />}
     </>
   );

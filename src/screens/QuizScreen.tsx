@@ -10,15 +10,17 @@ import {
 } from 'react-native';
 import { Question } from '../data/questions';
 import { Result } from '../data/questions';
+import { HeaderBar } from '../components/HeaderBar';
 
 interface QuizScreenProps {
   questions: Question[];
   onComplete: (result: Result) => void;
+  onBack: () => void;
 }
 
 const { width } = Dimensions.get('window');
 
-export const QuizScreen: React.FC<QuizScreenProps> = ({ questions, onComplete }) => {
+export const QuizScreen: React.FC<QuizScreenProps> = ({ questions, onComplete, onBack }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
 
@@ -52,6 +54,7 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({ questions, onComplete })
 
   return (
     <SafeAreaView style={styles.container}>
+      <HeaderBar showBack onBack={onBack} />
       <View style={styles.innerContainer}>
       {/* Progress */}
       <View style={styles.progressContainer}>
