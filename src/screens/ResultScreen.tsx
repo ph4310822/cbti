@@ -1,0 +1,275 @@
+import React from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
+import { Result, CHAIN_INFO } from '../data/questions';
+
+interface ResultScreenProps {
+  result: Result;
+  onRestart: () => void;
+}
+
+const getChainColor = (chain: string) => {
+  const colors: Record<string, string> = {
+    E: '#627EEA',
+    S: '#9945FF',
+    B: '#F7931A',
+    T: '#EB122A',
+  };
+  return colors[chain] || '#58A6FF';
+};
+
+export const ResultScreen: React.FC<ResultScreenProps> = ({ result, onRestart }) => {
+  const chainColor = getChainColor(result.chain);
+  const chainInfo = CHAIN_INFO[result.chain];
+  const profileKey = `${result.chain}-${result.risk}-${result.decision}-${result.habit}`;
+
+  const dimensionLabels = {
+    risk: result.risk === 'D' ? 'Degen 赌狗型' : 'Hodler 囤币型',
+    decision: result.decision === 'R' ? 'Researcher 研究型' : 'Sentiment 情绪型',
+    habit: result.habit === 'N' ? 'Native 链上原住民' : 'CEXer 交易所用户',
+  };
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView
+        style={styles.scrollView}
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
+        {/* Header */}
+        <View style={styles.header}>
+          <Text style={styles.headerTitle}>你的 CBTI 类型是</Text>
+          <View style={[styles.resultBadge, { borderColor: chainColor }]}>
+            <Text style={[styles.resultType, { color: chainColor }]}>
+              {result.chain}-{result.risk}-{result.decision}-{result.habit}
+            </Text>
+          </View>
+          <Text style={[styles.chainName, { color: chainColor }]}>
+            {chainInfo.name} · {chainInfo.description}
+          </Text>
+        </View>
+
+        {/* Title & Description */}
+        <View style={[styles.card, { borderLeftColor: chainColor }]}>
+          <Text style={styles.title}>{result.title}</Text>
+          <Text style={styles.description}>{result.description}</Text>
+        </View>
+
+        {/* Tagline */}
+        <View style={styles.taglineContainer}>
+          <Text style={styles.taglineText}>{result.tagline}</Text>
+        </View>
+
+        {/* Dimension Breakdown */}
+        <View style={styles.dimensionsContainer}>
+          <Text style={styles.sectionTitle}>维度解析</Text>
+
+          <View style={styles.dimensionItem}>
+            <View style={[styles.dot, { backgroundColor: '#627EEA' }]} />
+            <Text style={styles.dimensionLabel}>公链信仰</Text>
+            <Text style={styles.dimensionValue}>{result.chain} - {chainInfo.fullName}</Text>
+          </View>
+
+          <View style={styles.dimensionItem}>
+            <View style={[styles.dot, { backgroundColor: '#10B981' }]} />
+            <Text style={styles.dimensionLabel}>风险偏好</Text>
+            <Text style={styles.dimensionValue}>{dimensionLabels.risk}</Text>
+          </View>
+
+          <View style={styles.dimensionItem}>
+            <View style={[styles.dot, { backgroundColor: '#F59E0B' }]} />
+            <Text style={styles.dimensionLabel}>决策依据</Text>
+            <Text style={styles.dimensionValue}>{dimensionLabels.decision}</Text>
+          </View>
+
+          <View style={styles.dimensionItem}>
+            <View style={[styles.dot, { backgroundColor: '#EC4899' }]} />
+            <Text style={styles.dimensionLabel}>交互习惯</Text>
+            <Text style={styles.dimensionValue}>{dimensionLabels.habit}</Text>
+          </View>
+        </View>
+
+        {/* Advice */}
+        <View style={styles.adviceContainer}>
+          <Text style={styles.adviceTitle}>建议</Text>
+          <Text style={styles.adviceText}>{result.advice}</Text>
+        </View>
+
+        {/* Share & Restart */}
+        <View style={styles.actions}>
+          <TouchableOpacity
+            style={[styles.button, styles.shareButton]}
+            onPress={() => {}}
+            activeOpacity={0.8}
+          >
+            <Text style={styles.shareButtonText}>分享结果</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={[styles.button, styles.restartButton]}
+            onPress={onRestart}
+            activeOpacity={0.8}
+          >
+            <Text style={styles.restartButtonText}>重新测试</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#0D1117',
+  },
+  scrollView: {
+    flex: 1,
+  },
+  scrollContent: {
+    padding: 20,
+    paddingBottom: 40,
+  },
+  header: {
+    alignItems: 'center',
+    marginBottom: 32,
+    paddingTop: 20,
+  },
+  headerTitle: {
+    color: '#8B949E',
+    fontSize: 16,
+    marginBottom: 16,
+  },
+  resultBadge: {
+    borderWidth: 2,
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    borderRadius: 16,
+    marginBottom: 12,
+  },
+  resultType: {
+    fontSize: 28,
+    fontWeight: '800',
+    letterSpacing: 2,
+  },
+  chainName: {
+    fontSize: 18,
+    fontWeight: '600',
+  },
+  card: {
+    backgroundColor: '#161B22',
+    borderRadius: 16,
+    padding: 24,
+    borderLeftWidth: 4,
+    marginBottom: 24,
+  },
+  title: {
+    color: '#FFFFFF',
+    fontSize: 24,
+    fontWeight: '700',
+    marginBottom: 12,
+  },
+  description: {
+    color: '#8B949E',
+    fontSize: 16,
+    lineHeight: 24,
+  },
+  taglineContainer: {
+    backgroundColor: '#1F2937',
+    padding: 20,
+    borderRadius: 12,
+    marginBottom: 24,
+    alignItems: 'center',
+  },
+  taglineText: {
+    color: '#58A6FF',
+    fontSize: 18,
+    fontWeight: '600',
+    fontStyle: 'italic',
+    textAlign: 'center',
+  },
+  dimensionsContainer: {
+    backgroundColor: '#161B22',
+    borderRadius: 16,
+    padding: 20,
+    marginBottom: 24,
+  },
+  sectionTitle: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: '700',
+    marginBottom: 16,
+  },
+  dimensionItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  dot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    marginRight: 12,
+  },
+  dimensionLabel: {
+    color: '#8B949E',
+    fontSize: 14,
+    width: 80,
+  },
+  dimensionValue: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '500',
+  },
+  adviceContainer: {
+    backgroundColor: '#161B22',
+    borderRadius: 16,
+    padding: 20,
+    marginBottom: 32,
+  },
+  adviceTitle: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: '700',
+    marginBottom: 12,
+  },
+  adviceText: {
+    color: '#8B949E',
+    fontSize: 16,
+    lineHeight: 24,
+  },
+  actions: {
+    flexDirection: 'row',
+    gap: 12,
+  },
+  button: {
+    flex: 1,
+    paddingVertical: 16,
+    borderRadius: 12,
+    alignItems: 'center',
+  },
+  shareButton: {
+    backgroundColor: '#238636',
+  },
+  shareButtonText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  restartButton: {
+    backgroundColor: '#21262D',
+    borderWidth: 1,
+    borderColor: '#30363D',
+  },
+  restartButtonText: {
+    color: '#E6EDF3',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+});
