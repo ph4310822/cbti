@@ -97,7 +97,7 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({ questions, onComplete, o
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0D1117',
+    backgroundColor: '#F5F5F7',
   },
   innerContainer: {
     flex: 1,
@@ -112,23 +112,23 @@ const styles = StyleSheet.create({
   progressBar: {
     flex: 1,
     height: 4,
-    backgroundColor: '#21262D',
+    backgroundColor: '#E5E5EA',
     borderRadius: 2,
     overflow: 'hidden',
   },
   progressFill: {
     height: '100%',
-    backgroundColor: '#58A6FF',
+    backgroundColor: '#0066CC',
     borderRadius: 2,
   },
   progressText: {
-    color: '#8B949E',
+    color: '#6E6E73',
     fontSize: 14,
     marginLeft: 12,
     fontWeight: '500',
   },
   dimensionBadge: {
-    backgroundColor: '#1F2937',
+    backgroundColor: '#E8E8ED',
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 20,
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   dimensionText: {
-    color: '#58A6FF',
+    color: '#0066CC',
     fontSize: 14,
     fontWeight: '600',
   },
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   questionText: {
-    color: '#FFFFFF',
+    color: '#1D1D1F',
     fontSize: 20,
     fontWeight: '700',
     lineHeight: 30,
@@ -154,15 +154,15 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   optionButton: {
-    backgroundColor: '#161B22',
+    backgroundColor: '#FFFFFF',
     borderWidth: 1,
-    borderColor: '#30363D',
+    borderColor: '#E5E5EA',
     borderRadius: 12,
     padding: 20,
     marginBottom: 12,
   },
   optionText: {
-    color: '#E6EDF3',
+    color: '#1D1D1F',
     fontSize: 16,
     lineHeight: 24,
   },

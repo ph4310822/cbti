@@ -91,7 +91,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ result, onRestart })
           <Text style={styles.headerTitle}>你的 CBTI 类型是</Text>
           <View style={[styles.resultBadge]}>
           </View>
-<Text style={[styles.resultType, { color: '#FFFFFF' }]}>
+<Text style={[styles.resultType, { color: '#000000' }]}>
               {result.chain}{result.risk}{result.decision}{result.habit}
             </Text>
           <Text style={[styles.chainName, { color: chainColor }]}>
@@ -171,7 +171,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ result, onRestart })
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0D1117',
+    backgroundColor: '#FFFFFF',
   },
   scrollView: {
     flex: 1,
@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   headerTitle: {
-    color: '#8B949E',
+    color: '#6E6E73',
     fontSize: 16,
     marginBottom: 16,
   },
@@ -206,51 +206,53 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: '600',
     letterSpacing: 2,
+    color: '#1D1D1F',
   },
   chainName: {
     fontSize: 28,
     fontWeight: '800',
+    color: '#1D1D1F',
   },
   card: {
-    backgroundColor: '#161B22',
+    backgroundColor: '#FFFFFF',
     borderRadius: 16,
     padding: 24,
     borderLeftWidth: 4,
     marginBottom: 24,
   },
   title: {
-    color: '#FFFFFF',
+    color: '#1D1D1F',
     fontSize: 24,
     fontWeight: '700',
     marginBottom: 12,
   },
   description: {
-    color: '#8B949E',
+    color: '#6E6E73',
     fontSize: 16,
     lineHeight: 24,
   },
   taglineContainer: {
-    backgroundColor: '#1F2937',
+    backgroundColor: '#E8E8ED',
     padding: 20,
     borderRadius: 12,
     marginBottom: 24,
     alignItems: 'center',
   },
   taglineText: {
-    color: '#58A6FF',
+    color: '#0066CC',
     fontSize: 18,
     fontWeight: '600',
     fontStyle: 'italic',
     textAlign: 'center',
   },
   dimensionsContainer: {
-    backgroundColor: '#161B22',
+    backgroundColor: '#FFFFFF',
     borderRadius: 16,
     padding: 20,
     marginBottom: 24,
   },
   sectionTitle: {
-    color: '#FFFFFF',
+    color: '#1D1D1F',
     fontSize: 18,
     fontWeight: '700',
     marginBottom: 16,
@@ -267,29 +269,29 @@ const styles = StyleSheet.create({
     marginRight: 12,
   },
   dimensionLabel: {
-    color: '#8B949E',
+    color: '#6E6E73',
     fontSize: 14,
     width: 80,
   },
   dimensionValue: {
-    color: '#FFFFFF',
+    color: '#1D1D1F',
     fontSize: 14,
     fontWeight: '500',
   },
   adviceContainer: {
-    backgroundColor: '#161B22',
+    backgroundColor: '#FFFFFF',
     borderRadius: 16,
     padding: 20,
     marginBottom: 32,
   },
   adviceTitle: {
-    color: '#FFFFFF',
+    color: '#1D1D1F',
     fontSize: 18,
     fontWeight: '700',
     marginBottom: 12,
   },
   adviceText: {
-    color: '#8B949E',
+    color: '#6E6E73',
     fontSize: 16,
     lineHeight: 24,
   },
@@ -304,7 +306,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   shareButton: {
-    backgroundColor: '#238636',
+    backgroundColor: '#34C759',
   },
   shareButtonText: {
     color: '#FFFFFF',
@@ -312,12 +314,12 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   restartButton: {
-    backgroundColor: '#21262D',
+    backgroundColor: '#E5E5EA',
     borderWidth: 1,
-    borderColor: '#30363D',
+    borderColor: '#D1D1D6',
   },
   restartButtonText: {
-    color: '#E6EDF3',
+    color: '#1D1D1F',
     fontSize: 16,
     fontWeight: '600',
   },

@@ -78,7 +78,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onStart }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0D1117',
+    backgroundColor: '#F5F5F7',
   },
   content: {
     flex: 1,
@@ -95,20 +95,20 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   title: {
-    color: '#FFFFFF',
+    color: '#1D1D1F',
     fontSize: 48,
     fontWeight: '800',
     letterSpacing: 4,
     marginBottom: 8,
   },
   subtitle: {
-    color: '#58A6FF',
+    color: '#0066CC',
     fontSize: 20,
     fontWeight: '600',
     marginBottom: 12,
   },
   description: {
-    color: '#8B949E',
+    color: '#6E6E73',
     fontSize: 16,
   },
   introContainer: {
@@ -116,14 +116,14 @@ const styles = StyleSheet.create({
     marginBottom: 48,
   },
   introTitle: {
-    color: '#FFFFFF',
+    color: '#1D1D1F',
     fontSize: 18,
     fontWeight: '600',
     textAlign: 'center',
     marginBottom: 8,
   },
   introSubtitle: {
-    color: '#8B949E',
+    color: '#6E6E73',
     fontSize: 14,
     textAlign: 'center',
     marginBottom: 24,
@@ -135,31 +135,31 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   dimensionCard: {
-    backgroundColor: '#161B22',
+    backgroundColor: '#FFFFFF',
     borderRadius: 12,
     padding: 16,
     width: '47%',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#30363D',
+    borderColor: '#E5E5EA',
   },
   dimensionEmoji: {
     fontSize: 28,
     marginBottom: 8,
   },
   dimensionName: {
-    color: '#FFFFFF',
+    color: '#1D1D1F',
     fontSize: 14,
     fontWeight: '600',
     marginBottom: 4,
   },
   dimensionDesc: {
-    color: '#8B949E',
+    color: '#6E6E73',
     fontSize: 11,
     textAlign: 'center',
   },
   startButton: {
-    backgroundColor: '#58A6FF',
+    backgroundColor: '#0066CC',
     paddingHorizontal: 48,
     paddingVertical: 16,
     borderRadius: 12,
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   footer: {
-    color: '#6E7681',
+    color: '#86868B',
     fontSize: 14,
   },
 });
