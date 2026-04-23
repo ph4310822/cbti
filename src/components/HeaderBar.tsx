@@ -18,11 +18,13 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({ showBack, onBack }) => {
         <Text style={styles.domain}>cbti.one</Text>
       </TouchableOpacity>
       <View style={styles.right}>
-        {showBack && onBack ? (
-          <TouchableOpacity onPress={onBack} style={styles.backButton}>
-            <Text style={styles.backText}>{'<'}</Text>
-          </TouchableOpacity>
-        ) : null}
+        <TouchableOpacity
+          onPress={() => Linking.openURL('https://x.com/cbti_1')}
+          activeOpacity={0.7}
+          style={styles.xButton}
+        >
+          <Text style={styles.xIcon}>𝕏</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -55,6 +57,14 @@ const styles = StyleSheet.create({
     color: '#0066CC',
     fontSize: 22,
     fontWeight: '700',
+  },
+  xButton: {
+    padding: 8,
+  },
+  xIcon: {
+    fontSize: 28,
+    fontWeight: '700',
+    color: '#000000',
   },
   backButton: {
     padding: 6,

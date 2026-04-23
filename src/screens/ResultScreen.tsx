@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -9,6 +9,7 @@ import {
   Image,
   ImageSourcePropType,
 } from 'react-native';
+import { Clipboard } from 'react-native';
 
 const PERSONA_IMAGES: ImageSourcePropType[] = [
   require('../../assets/1.png'),
@@ -66,11 +67,20 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ result, onRestart })
   const chainColor = getChainColor(result.chain);
   const chainInfo = CHAIN_INFO[result.chain];
   const profileKey = `${result.chain}-${result.risk}-${result.decision}-${result.habit}`;
+  const [showToast, setShowToast] = useState(false);
 
   const dimensionLabels = {
     risk: result.risk === 'D' ? 'Degen 赌狗型' : 'Hodler 囤币型',
     decision: result.decision === 'R' ? 'Researcher 研究型' : 'Fomo 情绪型',
     habit: result.habit === 'N' ? 'Native 链上原住民' : 'CEXer 交易所用户',
+  };
+
+  const handleShare = async () => {
+    const shareText = `我在cbti.one上测试的币圈MBTI是${result.chain}${result.risk}${result.decision}${result.habit}，你也来试试吧：https://cbti.one/`;
+
+    Clipboard.setString(shareText);
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 2000);
   };
 
   return (
@@ -149,7 +159,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ result, onRestart })
         <View style={styles.actions}>
           <TouchableOpacity
             style={[styles.button, styles.shareButton]}
-            onPress={() => {}}
+            onPress={handleShare}
             activeOpacity={0.8}
           >
             <Text style={styles.shareButtonText}>分享结果</Text>
@@ -164,6 +174,15 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ result, onRestart })
           </TouchableOpacity>
         </View>
       </ScrollView>
+
+      {/* Custom Toast */}
+      {showToast && (
+        <View style={styles.toastContainer}>
+          <View style={styles.toast}>
+            <Text style={styles.toastText}>已复制到剪切板，快去分享吧</Text>
+          </View>
+        </View>
+      )}
     </SafeAreaView>
   );
 };
@@ -196,11 +215,11 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   resultBadge: {
-    borderWidth: 2,
+    // borderWidth: 2,
     // paddingHorizontal: 24,
     // paddingVertical: 12,
-    borderRadius: 16,
-    marginBottom: 12,
+    // borderRadius: 16,
+    // marginBottom: 12,
   },
   resultType: {
     fontSize: 28,
@@ -214,7 +233,7 @@ const styles = StyleSheet.create({
     color: '#1D1D1F',
   },
   card: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#FAFAFA',
     borderRadius: 16,
     padding: 24,
     borderLeftWidth: 4,
@@ -232,7 +251,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
   },
   taglineContainer: {
-    backgroundColor: '#E8E8ED',
+    backgroundColor: '#FAFAFA',
     padding: 20,
     borderRadius: 12,
     marginBottom: 24,
@@ -322,5 +341,29 @@ const styles = StyleSheet.create({
     color: '#1D1D1F',
     fontSize: 16,
     fontWeight: '600',
+  },
+  toastContainer: {
+    position: 'absolute',
+    bottom: 100,
+    left: 0,
+    right: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  toast: {
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    borderRadius: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  toastText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '500',
   },
 });

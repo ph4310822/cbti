@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   TouchableOpacity,
   Image,
+  Linking,
 } from 'react-native';
 import { HeaderBar } from '../components/HeaderBar';
 
@@ -69,6 +70,16 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onStart }) => {
           activeOpacity={0.8}
         >
           <Text style={styles.startButtonText}>开始测试</Text>
+        </TouchableOpacity>
+
+        {/* X Follow Button */}
+        <TouchableOpacity
+          style={styles.xButton}
+          onPress={() => Linking.openURL('https://x.com/cbti_1')}
+          activeOpacity={0.8}
+        >
+          <Text style={styles.xIcon}>𝕏</Text>
+          <Text style={styles.xButtonText}>关注我们</Text>
         </TouchableOpacity>
 
         <Text style={styles.footer}>约 3 分钟完成</Text>
@@ -176,5 +187,25 @@ const styles = StyleSheet.create({
   footer: {
     color: '#86868B',
     fontSize: 14,
+  },
+  xButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#000000',
+    paddingHorizontal: 32,
+    paddingVertical: 14,
+    borderRadius: 12,
+    marginBottom: 16,
+    gap: 8,
+  },
+  xIcon: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: '#FFFFFF',
+  },
+  xButtonText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: '600',
   },
 });
