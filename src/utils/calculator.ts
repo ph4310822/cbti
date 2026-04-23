@@ -1,5 +1,41 @@
 import { QUESTIONS, Result, PROFILES, CHAIN_INFO } from '../data/questions';
 
+// Maps profile key -> image index (1-32), ordered by readme: E-H-R-N=1, E-H-R-C=2, E-H-F-N=3 ... T-D-F-C=32
+const PROFILE_IMAGE_MAP: Record<string, number> = {
+  'E-H-R-N': 1,
+  'E-H-R-C': 2,
+  'E-H-F-N': 3,
+  'E-H-F-C': 4,
+  'E-D-R-N': 5,
+  'E-D-R-C': 6,
+  'E-D-F-N': 7,
+  'E-D-F-C': 8,
+  'S-H-R-N': 9,
+  'S-H-R-C': 10,
+  'S-H-F-N': 11,
+  'S-H-F-C': 12,
+  'S-D-R-N': 13,
+  'S-D-R-C': 14,
+  'S-D-F-N': 15,
+  'S-D-F-C': 16,
+  'B-H-R-N': 17,
+  'B-H-R-C': 18,
+  'B-H-F-N': 19,
+  'B-H-F-C': 20,
+  'B-D-R-N': 21,
+  'B-D-R-C': 22,
+  'B-D-F-N': 23,
+  'B-D-F-C': 24,
+  'T-H-R-N': 25,
+  'T-H-R-C': 26,
+  'T-H-F-N': 27,
+  'T-H-F-C': 28,
+  'T-D-R-N': 29,
+  'T-D-R-C': 30,
+  'T-D-F-N': 31,
+  'T-D-F-C': 32,
+};
+
 export function calculateResult(answers: number[]): Result {
   // Chain dimension: Q1(0) and Q2(1) - weighted scoring
   const chainScores = { E: 0, S: 0, B: 0, T: 0 };
@@ -38,9 +74,9 @@ export function calculateResult(answers: number[]): Result {
   const riskScore = answers[2] + answers[3];
   const risk: 'D' | 'H' = riskScore >= 2 ? 'D' : 'H';
 
-  // Decision dimension: Q5(4) and Q6(5) - A = 0 (R), B = 1 (S)
+  // Decision dimension: Q5(4) and Q6(5) - A = 1 (R), B = 0 (F)
   const decisionScore = answers[4] + answers[5];
-  const decision: 'R' | 'S' = decisionScore >= 2 ? 'S' : 'R';
+  const decision: 'R' | 'F' = decisionScore >= 2 ? 'R' : 'F';
 
   // Habit dimension: Q7(6) and Q8(7) - A = 0 (N), B = 1 (C)
   const habitScore = answers[6] + answers[7];
@@ -61,17 +97,18 @@ export function calculateResult(answers: number[]): Result {
     description: profile.description,
     tagline: getTagline(maxChain, risk, decision, habit),
     advice: getAdvice(maxChain, risk),
+    imageIndex: PROFILE_IMAGE_MAP[profileKey] ?? 1,
   };
 }
 
 function getTagline(chain: string, risk: string, decision: string, habit: string): string {
   const taglines: Record<string, string> = {
-    'S-D-S-N': '"Sleep is for the weak, Sol is for the moon."',
-    'S-D-S-C': '"K线上下抖，信仰不能丢。"',
+    'S-D-F-N': '"Sleep is for the weak, Sol is for the moon."',
+    'S-D-F-C': '"K线上下抖，信仰不能丢。"',
     'S-D-R-N': '"数据不会骗人，但我可能会错过 alpha。"',
     'S-D-R-C': '"盘口就是我的圣经。"',
-    'E-D-S-N': '"新协议，新机会，新风险。"',
-    'B-D-S-C': '"减半即暴富，三年等一回。"',
+    'E-D-F-N': '"新协议，新机会，新风险。"',
+    'B-D-F-C': '"减半即暴富，三年等一回。"',
     'E-H-R-N': '"钻石手，DeFi 梦。"',
     'B-H-R-N': '"私钥即主权，硬件冷存储。"',
     default: '"和时间做朋友，与波动共舞。"',

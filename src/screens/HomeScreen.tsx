@@ -49,7 +49,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onStart }) => {
             <View style={styles.dimensionCard}>
               <Text style={styles.dimensionEmoji}>🔬</Text>
               <Text style={styles.dimensionName}>决策依据</Text>
-              <Text style={styles.dimensionDesc}>Researcher / Sentiment</Text>
+              <Text style={styles.dimensionDesc}>Researcher / Fomo</Text>
             </View>
 
             <View style={styles.dimensionCard}>

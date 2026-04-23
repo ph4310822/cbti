@@ -14,12 +14,13 @@ export interface Option {
 export interface Result {
   chain: 'E' | 'S' | 'B' | 'T';
   risk: 'D' | 'H';
-  decision: 'R' | 'S';
+  decision: 'R' | 'F';
   habit: 'N' | 'C';
   title: string;
   description: string;
   tagline: string;
   advice: string;
+  imageIndex: number;
 }
 
 export interface ChainInfo {
@@ -60,11 +61,11 @@ export const PROFILES: Record<string, { title: string; description: string }> = 
     title: '以太坊合规官',
     description: '相信以太坊基本面，由于安全考虑资产存放在 CEX，看重研报。',
   },
-  'E-H-S-N': {
+  'E-H-F-N': {
     title: 'NFT 收藏家',
     description: '早期蓝筹 NFT 的 Diamond Hands，靠社区共识和审美持币。',
   },
-  'E-H-S-C': {
+  'E-H-F-C': {
     title: 'L2 信仰者',
     description: '看好以太坊生态未来，但在交易所买入后就不再动弹的"养老"用户。',
   },
@@ -76,11 +77,11 @@ export const PROFILES: Record<string, { title: string; description: string }> = 
     title: '打新专业户',
     description: '专门在交易所寻找优质 EVM 项目进行短线波段，看重机构背书。',
   },
-  'E-D-S-N': {
+  'E-D-F-N': {
     title: '链上领航员',
     description: '热衷于在链上寻找新的 Alpha，跟着社区情绪快速切入热门 L2。',
   },
-  'E-D-S-C': {
+  'E-D-F-C': {
     title: '小币种投机客',
     description: '在 CEX 里高杠杆交易以太坊系小币种，纯看盘面和情绪。',
   },
@@ -92,11 +93,11 @@ export const PROFILES: Record<string, { title: string; description: string }> = 
     title: '高性能信徒',
     description: '认同 SOL 的技术价值，但在 CEX 进行定投，不习惯管理私钥。',
   },
-  'S-H-S-N': {
+  'S-H-F-N': {
     title: '社区精神领袖',
     description: '长期持有 Solana 生态的核心 Meme，是链上活跃的社区大使。',
   },
-  'S-H-S-C': {
+  'S-H-F-C': {
     title: 'SOL 持币大户',
     description: '"SOL 必超 ETH"，单纯在交易所里囤货的稳健派。',
   },
@@ -108,11 +109,11 @@ export const PROFILES: Record<string, { title: string; description: string }> = 
     title: '波段交易员',
     description: '针对 Solana 生态币种在交易所做日内交易，极其看重盘口数据。',
   },
-  'S-D-S-N': {
+  'S-D-F-N': {
     title: 'Pump.fun 赌神',
     description: '在链上冲最土的狗，只信情绪，快进快出，Phantom 钱包重度使用者。',
   },
-  'S-D-S-C': {
+  'S-D-F-C': {
     title: '闪电投机者',
     description: '哪里有热度就去交易所冲哪里的 SOL 系代币，全凭直觉，不看逻辑。',
   },
@@ -124,11 +125,11 @@ export const PROFILES: Record<string, { title: string; description: string }> = 
     title: '机构追随者',
     description: '通过��易所或 ETF 长期持有大饼，定期阅读行业深度研究报告。',
   },
-  'B-H-S-N': {
+  'B-H-F-N': {
     title: '铭文守望者',
     description: '长期持有 Ordinals 或早期铭文，相信比特币生态的文化共识。',
   },
-  'B-H-S-C': {
+  'B-H-F-C': {
     title: '大饼养老族',
     description: '不懂技术也不看行情，只知道"大饼是好东西"，买完就存交易所。',
   },
@@ -140,11 +141,11 @@ export const PROFILES: Record<string, { title: string; description: string }> = 
     title: '杠杆套利员',
     description: '在交易所利用大饼的波动做高杠杆对冲或套利，极其理智。',
   },
-  'B-D-S-N': {
+  'B-D-F-N': {
     title: '铭文投机客',
     description: '疯狂在链上打各种新协议的铭文，全看社区喊单力度。',
   },
-  'B-D-S-C': {
+  'B-D-F-C': {
     title: '减半博弈者',
     description: '赌大饼波动，喜欢在重要节点通过期权、合约博取暴利。',
   },
@@ -156,11 +157,11 @@ export const PROFILES: Record<string, { title: string; description: string }> = 
     title: 'TRX 价值投资者',
     description: '在 CEX 长期持有 TRX 或关联代币，看重波场生态的盈利能力。',
   },
-  'T-H-S-N': {
+  'T-H-F-N': {
     title: '波场老玩家',
     description: '活跃在波场早期的 DApp 中，对孙哥的生态有种莫名的"情怀"。',
   },
-  'T-H-S-C': {
+  'T-H-F-C': {
     title: '稳定币搬运工',
     description: '把波场当成 U 存储器，在交易所长期存放 USDT，追求极致稳定。',
   },
@@ -172,11 +173,11 @@ export const PROFILES: Record<string, { title: string; description: string }> = 
     title: '套利交易商',
     description: '在交易所利用波场系代币的价差或资金费率进行快速套利。',
   },
-  'T-D-S-N': {
+  'T-D-F-N': {
     title: '土狗挖掘机（T 版）',
     description: '专门在波场链上找新的 Meme 或小项目冲，极其敏锐。',
   },
-  'T-D-S-C': {
+  'T-D-F-C': {
     title: 'TRC20 投机客',
     description: '追求转账快、手续费低，在交易所频繁买卖波场系热门代币。',
   },

@@ -6,7 +6,44 @@ import {
   SafeAreaView,
   ScrollView,
   TouchableOpacity,
+  Image,
+  ImageSourcePropType,
 } from 'react-native';
+
+const PERSONA_IMAGES: ImageSourcePropType[] = [
+  require('../../assets/1.png'),
+  require('../../assets/2.png'),
+  require('../../assets/3.png'),
+  require('../../assets/4.png'),
+  require('../../assets/5.png'),
+  require('../../assets/6.png'),
+  require('../../assets/7.png'),
+  require('../../assets/8.png'),
+  require('../../assets/9.png'),
+  require('../../assets/10.png'),
+  require('../../assets/11.png'),
+  require('../../assets/12.png'),
+  require('../../assets/13.png'),
+  require('../../assets/14.png'),
+  require('../../assets/15.png'),
+  require('../../assets/16.png'),
+  require('../../assets/17.png'),
+  require('../../assets/18.png'),
+  require('../../assets/19.png'),
+  require('../../assets/20.png'),
+  require('../../assets/21.png'),
+  require('../../assets/22.png'),
+  require('../../assets/23.png'),
+  require('../../assets/24.png'),
+  require('../../assets/25.png'),
+  require('../../assets/26.png'),
+  require('../../assets/27.png'),
+  require('../../assets/28.png'),
+  require('../../assets/29.png'),
+  require('../../assets/30.png'),
+  require('../../assets/31.png'),
+  require('../../assets/32.png'),
+];
 import { Result, CHAIN_INFO } from '../data/questions';
 import { HeaderBar } from '../components/HeaderBar';
 
@@ -32,7 +69,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ result, onRestart })
 
   const dimensionLabels = {
     risk: result.risk === 'D' ? 'Degen 赌狗型' : 'Hodler 囤币型',
-    decision: result.decision === 'R' ? 'Researcher 研究型' : 'Sentiment 情绪型',
+    decision: result.decision === 'R' ? 'Researcher 研究型' : 'Fomo 情绪型',
     habit: result.habit === 'N' ? 'Native 链上原住民' : 'CEXer 交易所用户',
   };
 
@@ -46,20 +83,25 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ result, onRestart })
       >
         {/* Header */}
         <View style={styles.header}>
+          <Image
+            source={PERSONA_IMAGES[result.imageIndex - 1]}
+            style={styles.personalityImage}
+            resizeMode="contain"
+          />
           <Text style={styles.headerTitle}>你的 CBTI 类型是</Text>
-          <View style={[styles.resultBadge, { borderColor: chainColor }]}>
-            <Text style={[styles.resultType, { color: chainColor }]}>
-              {result.chain}-{result.risk}-{result.decision}-{result.habit}
-            </Text>
+          <View style={[styles.resultBadge]}>
           </View>
+<Text style={[styles.resultType, { color: '#FFFFFF' }]}>
+              {result.chain}{result.risk}{result.decision}{result.habit}
+            </Text>
           <Text style={[styles.chainName, { color: chainColor }]}>
-            {chainInfo.name} · {chainInfo.description}
+            {result.title}
           </Text>
         </View>
 
         {/* Title & Description */}
         <View style={[styles.card, { borderLeftColor: chainColor }]}>
-          <Text style={styles.title}>{result.title}</Text>
+          <Text style={styles.title}>{chainInfo.name} · {chainInfo.description}</Text>
           <Text style={styles.description}>{result.description}</Text>
         </View>
 
@@ -141,7 +183,12 @@ const styles = StyleSheet.create({
   header: {
     alignItems: 'center',
     marginBottom: 32,
-    paddingTop: 20,
+    paddingTop: 8,
+  },
+  personalityImage: {
+    width: 160,
+    height: 160,
+    marginBottom: 16,
   },
   headerTitle: {
     color: '#8B949E',
@@ -150,19 +197,19 @@ const styles = StyleSheet.create({
   },
   resultBadge: {
     borderWidth: 2,
-    paddingHorizontal: 24,
-    paddingVertical: 12,
+    // paddingHorizontal: 24,
+    // paddingVertical: 12,
     borderRadius: 16,
     marginBottom: 12,
   },
   resultType: {
     fontSize: 28,
-    fontWeight: '800',
+    fontWeight: '600',
     letterSpacing: 2,
   },
   chainName: {
-    fontSize: 18,
-    fontWeight: '600',
+    fontSize: 28,
+    fontWeight: '800',
   },
   card: {
     backgroundColor: '#161B22',
