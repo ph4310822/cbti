@@ -1,4 +1,4 @@
-import { QUESTIONS, Result, PROFILES, CHAIN_INFO } from '../data/questions';
+import { QUESTIONS, Result, PROFILES } from '../data/questions';
 
 // Maps profile key -> image index (1-32), ordered by readme: E-H-R-N=1, E-H-R-C=2, E-H-F-N=3 ... T-D-F-C=32
 const PROFILE_IMAGE_MAP: Record<string, number> = {
@@ -84,8 +84,8 @@ export function calculateResult(answers: number[]): Result {
 
   const profileKey = `${maxChain}-${risk}-${decision}-${habit}`;
   const profile = PROFILES[profileKey] || {
-    title: '币圈新人',
-    description: '正在探索自己的投资风格。',
+    titleKey: 'profiles.default.title',
+    descriptionKey: 'profiles.default.description',
   };
 
   return {
@@ -93,39 +93,10 @@ export function calculateResult(answers: number[]): Result {
     risk,
     decision,
     habit,
-    title: profile.title,
-    description: profile.description,
-    tagline: getTagline(maxChain, risk, decision, habit),
-    advice: getAdvice(maxChain, risk),
+    titleKey: profile.titleKey,
+    descriptionKey: profile.descriptionKey,
+    taglineKey: `taglines.${profileKey}`,
+    adviceKey: `advice.${maxChain}-${risk}`,
     imageIndex: PROFILE_IMAGE_MAP[profileKey] ?? 1,
   };
-}
-
-function getTagline(chain: string, risk: string, decision: string, habit: string): string {
-  const taglines: Record<string, string> = {
-    'S-D-F-N': '"Sleep is for the weak, Sol is for the moon."',
-    'S-D-F-C': '"K线上下抖，信仰不能丢。"',
-    'S-D-R-N': '"数据不会骗人，但我可能会错过 alpha。"',
-    'S-D-R-C': '"盘口就是我的圣经。"',
-    'E-D-F-N': '"新协议，新机会，新风险。"',
-    'B-D-F-C': '"减半即暴富，三年等一回。"',
-    'E-H-R-N': '"钻石手，DeFi 梦。"',
-    'B-H-R-N': '"私钥即主权，硬件冷存储。"',
-    default: '"和时间做朋友，与波动共舞。"',
-  };
-  return taglines[`${chain}-${risk}-${decision}-${habit}`] || taglines.default;
-}
-
-function getAdvice(chain: string, risk: string): string {
-  const chainAdvices: Record<string, string> = {
-    'S-D': '注意休息，你的 F5 键快被按坏了。',
-    'E-D': '注意协议风险，合约漏洞可能让你血本无归。',
-    'B-D': '铭文有风险，打铭前请做好归零准备。',
-    'T-D': '土狗虽香，谨慎土狗陷阱。',
-    'S-H': '长期持有 Solana，让时间证明一切。',
-    'E-H': 'DeFi 是个金矿，但也需要耐心。',
-    'B-H': 'HODL 到底，时间会是最好的朋友。',
-    'T-H': '稳健持币，波场生态稳步发展。',
-  };
-  return chainAdvices[`${chain}-${risk}`] || '保持理性，不要 FOMO。';
 }

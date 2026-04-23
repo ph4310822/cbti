@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Linking, Image } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
 interface HeaderBarProps {
   showBack?: boolean;
@@ -7,6 +8,13 @@ interface HeaderBarProps {
 }
 
 export const HeaderBar: React.FC<HeaderBarProps> = ({ showBack, onBack }) => {
+  const { i18n } = useTranslation();
+  const isZh = i18n.language === 'zh';
+
+  const toggleLanguage = () => {
+    i18n.changeLanguage(isZh ? 'en' : 'zh');
+  };
+
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -19,12 +27,19 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({ showBack, onBack }) => {
       </TouchableOpacity>
       <View style={styles.right}>
         <TouchableOpacity
+          onPress={toggleLanguage}
+          activeOpacity={0.7}
+          style={styles.langButton}
+        >
+          <Text style={styles.langText}>🌐 {isZh ? '中' : 'EN'}</Text>
+        </TouchableOpacity>
+        {/* <TouchableOpacity
           onPress={() => Linking.openURL('https://x.com/cbti_1')}
           activeOpacity={0.7}
           style={styles.xButton}
         >
           <Text style={styles.xIcon}>𝕏</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </View>
   );
@@ -60,6 +75,15 @@ const styles = StyleSheet.create({
   },
   xButton: {
     padding: 8,
+  },
+  langButton: {
+    padding: 8,
+    marginRight: 4,
+  },
+  langText: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#0066CC',
   },
   xIcon: {
     fontSize: 28,

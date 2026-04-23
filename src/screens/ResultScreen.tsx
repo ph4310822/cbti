@@ -9,6 +9,7 @@ import {
   Image,
   ImageSourcePropType,
 } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { Clipboard } from 'react-native';
 
 const PERSONA_IMAGES: ImageSourcePropType[] = [
@@ -47,6 +48,7 @@ const PERSONA_IMAGES: ImageSourcePropType[] = [
 ];
 import { Result, CHAIN_INFO } from '../data/questions';
 import { HeaderBar } from '../components/HeaderBar';
+import { Linking } from 'react-native';
 
 interface ResultScreenProps {
   result: Result;
@@ -64,23 +66,32 @@ const getChainColor = (chain: string) => {
 };
 
 export const ResultScreen: React.FC<ResultScreenProps> = ({ result, onRestart }) => {
+  const { t } = useTranslation();
   const chainColor = getChainColor(result.chain);
   const chainInfo = CHAIN_INFO[result.chain];
-  const profileKey = `${result.chain}-${result.risk}-${result.decision}-${result.habit}`;
   const [showToast, setShowToast] = useState(false);
 
   const dimensionLabels = {
-    risk: result.risk === 'D' ? 'Degen 赌狗型' : 'Hodler 囤币型',
-    decision: result.decision === 'R' ? 'Researcher 研究型' : 'Fomo 情绪型',
-    habit: result.habit === 'N' ? 'Native 链上原住民' : 'CEXer 交易所用户',
+    risk: result.risk === 'D' ? t('result.riskDegen') : t('result.riskHodler'),
+    decision: result.decision === 'R' ? t('result.decisionResearcher') : t('result.decisionFomo'),
+    habit: result.habit === 'N' ? t('result.habitNative') : t('result.habitCEX'),
   };
 
+  const dimensionChainLabel = t('result.dimensionChain');
+
   const handleShare = async () => {
-    const shareText = `我在cbti.one上测试的币圈MBTI是${result.chain}${result.risk}${result.decision}${result.habit} (${result.title})，你也来试试吧：https://cbti.one/`;
+    const shareText = t('result.shareText', {
+      type: `${result.chain}${result.risk}${result.decision}${result.habit}`,
+      title: t(result.titleKey),
+    });
 
     Clipboard.setString(shareText);
     setShowToast(true);
     setTimeout(() => setShowToast(false), 2000);
+  };
+
+  const handleFollowUs = () => {
+    Linking.openURL('https://x.com/cbti_1');
   };
 
   return (
@@ -98,61 +109,60 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ result, onRestart })
             style={styles.personalityImage}
             resizeMode="contain"
           />
-          <Text style={styles.headerTitle}>你的 CBTI 类型是</Text>
-          <View style={[styles.resultBadge]}>
-          </View>
-<Text style={[styles.resultType, { color: '#000000' }]}>
-              {result.chain}{result.risk}{result.decision}{result.habit}
-            </Text>
+          <Text style={styles.headerTitle}>{t('result.headerTitle')}</Text>
+          <View style={[styles.resultBadge]} />
+          <Text style={[styles.resultType, { color: '#000000' }]}>
+            {result.chain}{result.risk}{result.decision}{result.habit}
+          </Text>
           <Text style={[styles.chainName, { color: chainColor }]}>
-            {result.title}
+            {t(result.titleKey)}
           </Text>
         </View>
 
         {/* Title & Description */}
         <View style={[styles.card, { borderLeftColor: chainColor }]}>
-          <Text style={styles.title}>{chainInfo.name} · {chainInfo.description}</Text>
-          <Text style={styles.description}>{result.description}</Text>
+          <Text style={styles.title}>{chainInfo.name} · {t(chainInfo.descriptionKey)}</Text>
+          <Text style={styles.description}>{t(result.descriptionKey)}</Text>
         </View>
 
         {/* Tagline */}
         <View style={styles.taglineContainer}>
-          <Text style={styles.taglineText}>{result.tagline}</Text>
+          <Text style={styles.taglineText}>{t(result.taglineKey)}</Text>
         </View>
 
         {/* Dimension Breakdown */}
         <View style={styles.dimensionsContainer}>
-          <Text style={styles.sectionTitle}>维度解析</Text>
+          <Text style={styles.sectionTitle}>{t('result.dimensionBreakdown')}</Text>
 
           <View style={styles.dimensionItem}>
             <View style={[styles.dot, { backgroundColor: '#627EEA' }]} />
-            <Text style={styles.dimensionLabel}>公链信仰</Text>
+            <Text style={styles.dimensionLabel}>{dimensionChainLabel}</Text>
             <Text style={styles.dimensionValue}>{result.chain} - {chainInfo.fullName}</Text>
           </View>
 
           <View style={styles.dimensionItem}>
             <View style={[styles.dot, { backgroundColor: '#10B981' }]} />
-            <Text style={styles.dimensionLabel}>风险偏好</Text>
+            <Text style={styles.dimensionLabel}>{t('result.dimensionRisk')}</Text>
             <Text style={styles.dimensionValue}>{dimensionLabels.risk}</Text>
           </View>
 
           <View style={styles.dimensionItem}>
             <View style={[styles.dot, { backgroundColor: '#F59E0B' }]} />
-            <Text style={styles.dimensionLabel}>决策依据</Text>
+            <Text style={styles.dimensionLabel}>{t('result.dimensionDecision')}</Text>
             <Text style={styles.dimensionValue}>{dimensionLabels.decision}</Text>
           </View>
 
           <View style={styles.dimensionItem}>
             <View style={[styles.dot, { backgroundColor: '#EC4899' }]} />
-            <Text style={styles.dimensionLabel}>交互习惯</Text>
+            <Text style={styles.dimensionLabel}>{t('result.dimensionHabit')}</Text>
             <Text style={styles.dimensionValue}>{dimensionLabels.habit}</Text>
           </View>
         </View>
 
         {/* Advice */}
         <View style={styles.adviceContainer}>
-          <Text style={styles.adviceTitle}>建议</Text>
-          <Text style={styles.adviceText}>{result.advice}</Text>
+          <Text style={styles.adviceTitle}>{t('result.advice')}</Text>
+          <Text style={styles.adviceText}>{t(result.adviceKey)}</Text>
         </View>
 
         {/* Share & Restart */}
@@ -162,7 +172,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ result, onRestart })
             onPress={handleShare}
             activeOpacity={0.8}
           >
-            <Text style={styles.shareButtonText}>分享结果</Text>
+            <Text style={styles.shareButtonText}>{t('result.shareButton')}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -170,16 +180,25 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ result, onRestart })
             onPress={onRestart}
             activeOpacity={0.8}
           >
-            <Text style={styles.restartButtonText}>重新测试</Text>
+            <Text style={styles.restartButtonText}>{t('result.restartButton')}</Text>
           </TouchableOpacity>
         </View>
+
+        {/* Follow Us */}
+        <TouchableOpacity
+          style={styles.followUsButton}
+          onPress={handleFollowUs}
+          activeOpacity={0.8}
+        >
+          <Text style={styles.followUsButtonText}>Follow Us</Text>
+        </TouchableOpacity>
       </ScrollView>
 
       {/* Custom Toast */}
       {showToast && (
         <View style={styles.toastContainer}>
           <View style={styles.toast}>
-            <Text style={styles.toastText}>已复制到剪切板，快去分享吧</Text>
+            <Text style={styles.toastText}>{t('result.copiedToast')}</Text>
           </View>
         </View>
       )}
@@ -214,13 +233,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 16,
   },
-  resultBadge: {
-    // borderWidth: 2,
-    // paddingHorizontal: 24,
-    // paddingVertical: 12,
-    // borderRadius: 16,
-    // marginBottom: 12,
-  },
+  resultBadge: {},
   resultType: {
     fontSize: 28,
     fontWeight: '600',
@@ -365,5 +378,17 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 14,
     fontWeight: '500',
+  },
+  followUsButton: {
+    backgroundColor: '#000000',
+    paddingVertical: 16,
+    borderRadius: 12,
+    alignItems: 'center',
+    marginTop: 12,
+  },
+  followUsButtonText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: '600',
   },
 });

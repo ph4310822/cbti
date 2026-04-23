@@ -8,6 +8,7 @@ import {
   Image,
   Linking,
 } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { HeaderBar } from '../components/HeaderBar';
 
 const HOME_LOGO = require('../../assets/logo.png');
@@ -17,6 +18,8 @@ interface HomeScreenProps {
 }
 
 export const HomeScreen: React.FC<HomeScreenProps> = ({ onStart }) => {
+  const { t } = useTranslation();
+
   return (
     <SafeAreaView style={styles.container}>
       <HeaderBar />
@@ -24,41 +27,41 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onStart }) => {
         {/* Logo / Title */}
         <View style={styles.header}>
           <Image source={HOME_LOGO} style={styles.logo} resizeMode="contain" />
-          <Text style={styles.title}>CBTI</Text>
-          <Text style={styles.subtitle}>Crypto MBTI</Text>
+          <Text style={styles.title}>{t('home.title')}</Text>
+          <Text style={styles.subtitle}>{t('home.subtitle')}</Text>
           <Text style={styles.description}>
-            发现你的币圈人格类型
+            {t('home.description')}
           </Text>
         </View>
 
         {/* Intro Cards */}
         <View style={styles.introContainer}>
-          <Text style={styles.introTitle}>测试包含 8 道场景题</Text>
-          <Text style={styles.introSubtitle}>涵盖四个核心维度</Text>
+          <Text style={styles.introTitle}>{t('home.introTitle')}</Text>
+          <Text style={styles.introSubtitle}>{t('home.introSubtitle')}</Text>
 
           <View style={styles.dimensionsGrid}>
             <View style={styles.dimensionCard}>
               <Text style={styles.dimensionEmoji}>⛓️</Text>
-              <Text style={styles.dimensionName}>公链信仰</Text>
-              <Text style={styles.dimensionDesc}>EVM / Solana / Bitcoin / Tron</Text>
+              <Text style={styles.dimensionName}>{t('home.dimensionChain')}</Text>
+              <Text style={styles.dimensionDesc}>{t('home.dimensionChainDesc')}</Text>
             </View>
 
             <View style={styles.dimensionCard}>
               <Text style={styles.dimensionEmoji}>🎲</Text>
-              <Text style={styles.dimensionName}>风险偏好</Text>
-              <Text style={styles.dimensionDesc}>Degen / Hodler</Text>
+              <Text style={styles.dimensionName}>{t('home.dimensionRisk')}</Text>
+              <Text style={styles.dimensionDesc}>{t('home.dimensionRiskDesc')}</Text>
             </View>
 
             <View style={styles.dimensionCard}>
               <Text style={styles.dimensionEmoji}>🔬</Text>
-              <Text style={styles.dimensionName}>决策依据</Text>
-              <Text style={styles.dimensionDesc}>Researcher / Fomo</Text>
+              <Text style={styles.dimensionName}>{t('home.dimensionDecision')}</Text>
+              <Text style={styles.dimensionDesc}>{t('home.dimensionDecisionDesc')}</Text>
             </View>
 
             <View style={styles.dimensionCard}>
               <Text style={styles.dimensionEmoji}>🌐</Text>
-              <Text style={styles.dimensionName}>交互习惯</Text>
-              <Text style={styles.dimensionDesc}>Native / CEXer</Text>
+              <Text style={styles.dimensionName}>{t('home.dimensionHabit')}</Text>
+              <Text style={styles.dimensionDesc}>{t('home.dimensionHabitDesc')}</Text>
             </View>
           </View>
         </View>
@@ -69,7 +72,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onStart }) => {
           onPress={onStart}
           activeOpacity={0.8}
         >
-          <Text style={styles.startButtonText}>开始测试</Text>
+          <Text style={styles.startButtonText}>{t('home.startButton')}</Text>
         </TouchableOpacity>
 
         {/* X Follow Button */}
@@ -79,10 +82,10 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onStart }) => {
           activeOpacity={0.8}
         >
           <Text style={styles.xIcon}>𝕏</Text>
-          <Text style={styles.xButtonText}>关注我们</Text>
+          <Text style={styles.xButtonText}>{t('home.followUs')}</Text>
         </TouchableOpacity>
 
-        <Text style={styles.footer}>约 3 分钟完成</Text>
+        <Text style={styles.footer}>{t('home.footer')}</Text>
       </View>
     </SafeAreaView>
   );

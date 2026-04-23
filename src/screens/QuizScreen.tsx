@@ -6,8 +6,8 @@ import {
   TouchableOpacity,
   SafeAreaView,
   ScrollView,
-  Dimensions,
 } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { Question } from '../data/questions';
 import { Result } from '../data/questions';
 import { HeaderBar } from '../components/HeaderBar';
@@ -18,14 +18,21 @@ interface QuizScreenProps {
   onBack: () => void;
 }
 
-const { width } = Dimensions.get('window');
+const DIMENSION_KEYS: Record<string, 'quiz.dimensionChain' | 'quiz.dimensionRisk' | 'quiz.dimensionDecision' | 'quiz.dimensionHabit'> = {
+  chain: 'quiz.dimensionChain',
+  risk: 'quiz.dimensionRisk',
+  decision: 'quiz.dimensionDecision',
+  habit: 'quiz.dimensionHabit',
+};
 
 export const QuizScreen: React.FC<QuizScreenProps> = ({ questions, onComplete, onBack }) => {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
 
   const currentQuestion = questions[currentIndex];
   const progress = (currentIndex + 1) / questions.length;
+  const dimensionKey = DIMENSION_KEYS[currentQuestion.dimension];
 
   const handleSelect = (optionIndex: number) => {
     const newAnswers = [...answers, optionIndex];
@@ -34,7 +41,6 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({ questions, onComplete, o
     if (currentIndex < questions.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      // All questions answered, calculate result
       import('../utils/calculator').then(({ calculateResult }) => {
         const result = calculateResult(newAnswers);
         onComplete(result);
@@ -42,53 +48,45 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({ questions, onComplete, o
     }
   };
 
-  const getDimensionLabel = (dimension: string) => {
-    const labels: Record<string, string> = {
-      chain: '公链信仰',
-      risk: '风险偏好',
-      decision: '决策风格',
-      habit: '交互习惯',
-    };
-    return labels[dimension] || '';
-  };
-
   return (
     <SafeAreaView style={styles.container}>
       <HeaderBar showBack onBack={onBack} />
       <View style={styles.innerContainer}>
-      {/* Progress */}
-      <View style={styles.progressContainer}>
-        <View style={styles.progressBar}>
-          <View style={[styles.progressFill, { width: `${progress * 100}%` }]} />
+        {/* Progress */}
+        <View style={styles.progressContainer}>
+          <View style={styles.progressBar}>
+            <View style={[styles.progressFill, { width: `${progress * 100}%` }]} />
+          </View>
+          <Text style={styles.progressText}>
+            {t('quiz.progress', { current: currentIndex + 1, total: questions.length })}
+          </Text>
         </View>
-        <Text style={styles.progressText}>{currentIndex + 1} / {questions.length}</Text>
-      </View>
 
-      {/* Dimension Badge */}
-      <View style={styles.dimensionBadge}>
-        <Text style={styles.dimensionText}>
-          维度 {Math.floor(currentIndex / 2) + 1}：{getDimensionLabel(currentQuestion.dimension)}
-        </Text>
-      </View>
-
-      {/* Question */}
-      <ScrollView style={styles.questionContainer} showsVerticalScrollIndicator={false}>
-        <Text style={styles.questionText}>{currentQuestion.question}</Text>
-
-        {/* Options */}
-        <View style={styles.optionsContainer}>
-          {currentQuestion.options.map((option, index) => (
-            <TouchableOpacity
-              key={index}
-              style={styles.optionButton}
-              onPress={() => handleSelect(index)}
-              activeOpacity={0.7}
-            >
-              <Text style={styles.optionText}>{option.label}</Text>
-            </TouchableOpacity>
-          ))}
+        {/* Dimension Badge */}
+        <View style={styles.dimensionBadge}>
+          <Text style={styles.dimensionText}>
+            {t('quiz.dimension', { number: Math.floor(currentIndex / 2) + 1, label: t(dimensionKey) })}
+          </Text>
         </View>
-      </ScrollView>
+
+        {/* Question */}
+        <ScrollView style={styles.questionContainer} showsVerticalScrollIndicator={false}>
+          <Text style={styles.questionText}>{t(`questions.q${currentIndex + 1}`)}</Text>
+
+          {/* Options */}
+          <View style={styles.optionsContainer}>
+            {currentQuestion.optionKeys.map((key, index) => (
+              <TouchableOpacity
+                key={index}
+                style={styles.optionButton}
+                onPress={() => handleSelect(index)}
+                activeOpacity={0.7}
+              >
+                <Text style={styles.optionText}>{t(key)}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+        </ScrollView>
       </View>
     </SafeAreaView>
   );
