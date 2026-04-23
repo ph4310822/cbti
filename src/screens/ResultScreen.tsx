@@ -76,7 +76,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ result, onRestart })
   };
 
   const handleShare = async () => {
-    const shareText = `我在cbti.one上测试的币圈MBTI是${result.chain}${result.risk}${result.decision}${result.habit}，你也来试试吧：https://cbti.one/`;
+    const shareText = `我在cbti.one上测试的币圈MBTI是${result.chain}${result.risk}${result.decision}${result.habit} (${result.title})，你也来试试吧：https://cbti.one/`;
 
     Clipboard.setString(shareText);
     setShowToast(true);
