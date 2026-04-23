@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingVertical: 16,
     backgroundColor: '#FFFFFF',
     borderBottomWidth: 1,
     borderBottomColor: '#E5E5EA',
@@ -42,26 +42,26 @@ const styles = StyleSheet.create({
   left: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    gap: 10,
   },
   right: {
     alignItems: 'flex-end',
   },
   logo: {
-    width: 28,
-    height: 28,
+    width: 40,
+    height: 40,
   },
   domain: {
     color: '#0066CC',
-    fontSize: 16,
-    fontWeight: '600',
+    fontSize: 22,
+    fontWeight: '700',
   },
   backButton: {
-    padding: 4,
+    padding: 6,
   },
   backText: {
     color: '#0066CC',
-    fontSize: 20,
-    fontWeight: '600',
+    fontSize: 24,
+    fontWeight: '700',
   },
 });

@@ -54,11 +54,11 @@ export const CHAIN_INFO: Record<string, ChainInfo> = {
 
 export const PROFILES: Record<string, { title: string; description: string }> = {
   'E-H-R-N': {
-    title: 'DeFi 架构师',
+    title: 'E卫兵',
     description: '硬核原住民，只在链上操作，研究深度极高，长期持有蓝筹协议。',
   },
   'E-H-R-C': {
-    title: '以太坊合规官',
+    title: '合规官',
     description: '相信以太坊基本面，由于安全考虑资产存放在 CEX，看重研报。',
   },
   'E-H-F-N': {
@@ -82,7 +82,7 @@ export const PROFILES: Record<string, { title: string; description: string }> = 
     description: '热衷于在链上寻找新的 Alpha，跟着社区情绪快速切入热门 L2。',
   },
   'E-D-F-C': {
-    title: '小币种投机客',
+    title: 'OG投机客',
     description: '在 CEX 里高杠杆交易以太坊系小币种，纯看盘面和情绪。',
   },
   'S-H-R-N': {
@@ -98,7 +98,7 @@ export const PROFILES: Record<string, { title: string; description: string }> = 
     description: '长期持有 Solana 生态的核心 Meme，是链上活跃的社区大使。',
   },
   'S-H-F-C': {
-    title: 'SOL 持币大户',
+    title: 'SOL 大户',
     description: '"SOL 必超 ETH"，单纯在交易所里囤货的稳健派。',
   },
   'S-D-R-N': {

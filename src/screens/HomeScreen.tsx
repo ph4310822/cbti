@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 import { HeaderBar } from '../components/HeaderBar';
 
+const HOME_LOGO = require('../../assets/logo.png');
+
 interface HomeScreenProps {
   onStart: () => void;
 }
@@ -20,7 +22,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onStart }) => {
       <View style={styles.content}>
         {/* Logo / Title */}
         <View style={styles.header}>
-          <Text style={styles.emoji}>🪙</Text>
+          <Image source={HOME_LOGO} style={styles.logo} resizeMode="contain" />
           <Text style={styles.title}>CBTI</Text>
           <Text style={styles.subtitle}>Crypto MBTI</Text>
           <Text style={styles.description}>
@@ -90,9 +92,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 48,
   },
-  emoji: {
-    fontSize: 64,
-    marginBottom: 16,
+  logo: {
+    width: 100,
+    height: 100,
+    marginBottom: 20,
   },
   title: {
     color: '#1D1D1F',
