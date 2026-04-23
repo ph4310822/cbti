@@ -74,9 +74,9 @@ export function calculateResult(answers: number[]): Result {
   const riskScore = answers[2] + answers[3];
   const risk: 'D' | 'H' = riskScore >= 2 ? 'D' : 'H';
 
-  // Decision dimension: Q5(4) and Q6(5) - A = 1 (R), B = 0 (F)
+  // Decision dimension: Q5(4) and Q6(5) - A = 0 (R), B = 1 (F)
   const decisionScore = answers[4] + answers[5];
-  const decision: 'R' | 'F' = decisionScore >= 2 ? 'R' : 'F';
+  const decision: 'R' | 'F' = decisionScore >= 2 ? 'F' : 'R';
 
   // Habit dimension: Q7(6) and Q8(7) - A = 0 (N), B = 1 (C)
   const habitScore = answers[6] + answers[7];
