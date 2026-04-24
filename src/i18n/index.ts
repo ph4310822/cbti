@@ -9,8 +9,9 @@ import ar from './ar.json';
 import ru from './ru.json';
 import es from './es.json';
 import pt from './pt.json';
+import fr from './fr.json';
 
-export const LANGUAGES = ['zh', 'en', 'ko', 'ja', 'vi', 'ar', 'ru', 'es', 'pt'] as const;
+export const LANGUAGES = ['zh', 'en', 'ko', 'ja', 'vi', 'ar', 'ru', 'es', 'pt', 'fr'] as const;
 export type Language = (typeof LANGUAGES)[number];
 
 export const LANGUAGE_NAMES: Record<string, string> = {
@@ -23,6 +24,7 @@ export const LANGUAGE_NAMES: Record<string, string> = {
   ru: 'Русский',
   es: 'Español',
   pt: 'Português',
+  fr: 'Français',
 };
 
 i18n.use(initReactI18next).init({
@@ -36,6 +38,7 @@ i18n.use(initReactI18next).init({
     ru: { translation: ru },
     es: { translation: es },
     pt: { translation: pt },
+    fr: { translation: fr },
   },
   lng: 'en',
   fallbackLng: 'en',

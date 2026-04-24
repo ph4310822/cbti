@@ -22,6 +22,7 @@ const LANGUAGE_FLAGS: Record<string, string> = {
   ru: '🇷🇺',
   es: '🇪🇸',
   pt: '🇧🇷',
+  fr: '🇫🇷',
 };
 
 interface HeaderBarProps {
