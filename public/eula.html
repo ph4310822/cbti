@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End User License Agreement - CBTI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            font-size: 1.5em;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+        .header .meta {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .meta-item {
+            display: inline-block;
+            margin: 5px 15px;
+            padding: 5px 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+        }
+
+        .content {
+            padding: 40px 50px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .section h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin: 20px 0 10px;
+            font-weight: 600;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            padding: 10px 0;
+            padding-left: 35px;
+            position: relative;
+            color: #555;
+        }
+
+        ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 25px;
+            height: 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .restrictions li::before {
+            content: "✗";
+        }
+
+        .ip-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .ip-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #667eea;
+        }
+
+        .ip-item .emoji {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .highlight-box {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .contact-box h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .footer p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #667eea;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 25px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .section h2 {
+                font-size: 1.5em;
+            }
+
+            .ip-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 End User License Agreement</h1>
+            <div class="subtitle">CBTI</div>
+            <div class="meta">
+                <span class="meta-item">📅 Last Updated: March 24, 2026</span>
+                <span class="meta-item">📦 Package: app.cbti.one</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>📋 Introduction</h2>
+                <p>This End User License Agreement ("<strong>Agreement</strong>") is a legal agreement between you and <strong>CBTI</strong> ("Developer," "we," or "us") for the use of the CBTI mobile application ("<strong>App</strong>").</p>
+                <p>By installing, downloading, accessing, or using the App, you agree to be bound by the terms of this Agreement. If you do not agree to these terms, please do not use the App.</p>
+            </div>
+
+            <div class="section">
+                <h2>✅ 1. License Grant</h2>
+                <p><strong>CBTI</strong> grants you a personal, non-exclusive, non-transferable, limited license to:</p>
+                <ul>
+                    <li>Install and use the <strong>CBTI</strong> application on devices owned or controlled by you</li>
+                    <li>Access and use the features and functionality of the App for personal, non-commercial purposes</li>
+                </ul>
+                <p>This license is granted strictly in accordance with the terms outlined in this Agreement.</p>
+            </div>
+
+            <div class="section">
+                <h2>🚫 2. Restrictions on Use</h2>
+                <p>You agree <strong>NOT</strong> to, and you will not permit others to:</p>
+                <ul class="restrictions">
+                    <li>License, sell, rent, lease, assign, or otherwise commercially exploit the App</li>
+                    <li>Modify, create derivative works of, disassemble, decrypt, reverse compile, or reverse engineer any part of the App</li>
+                    <li>Remove, alter, or obscure any proprietary notices (including copyright or trademark notices) of CBTI</li>
+                    <li>Use the App for any illegal purpose or in violation of any local, state, national, or international law</li>
+                    <li>Attempt to gain unauthorized access to any part of the App, our servers, or any related systems</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>©️ 3. Intellectual Property Rights</h2>
+                <p>The App, including without limitation all intellectual property rights listed below, are and shall remain the <strong>sole and exclusive property of CBTI</strong>:</p>
+                <div class="ip-list">
+                    <div class="ip-item">
+                        <div class="emoji">📝</div>
+                        <div>Copyrights</div>
+                    </div>
+                    <div class="ip-item">
+                        <div class="emoji">🔐</div>
+                        <div>Patents</div>
+                    </div>
+                    <div class="ip-item">
+                        <div class="emoji">🏷️</div>
+                        <div>Trademarks</div>
+                    </div>
+                    <div class="ip-item">
+                        <div class="emoji">🔒</div>
+                        <div>Trade secrets</div>
+                    </div>
+                    <div class="ip-item">
+                        <div class="emoji">💡</div>
+                        <div>Other IP rights</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🔐 4. Privacy and Data Collection</h2>
+                <p>Your use of the App is also governed by our <strong>Privacy Policy</strong>.</p>
+                <p>By using the App, you consent to the collection and use of data as outlined in our Privacy Policy to ensure the functionality and security of the Service.</p>
+                <div class="highlight-box">
+                    <strong>📱 Please review our Privacy Policy at:</strong><br>
+<a href="https://cbti.one/privacy
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>⏹️ 5. Termination</h2>
+                <p>This Agreement is <strong>effective until terminated</strong> by you or CBTI.</p>
+                <p>Your rights under this license will <strong>terminate automatically without notice</strong> if you fail to comply with any term(s) of this Agreement.</p>
+                <p>Upon termination, your right to use the App will immediately cease, and you must uninstall the App from all devices.</p>
+            </div>
+
+            <div class="section">
+                <h2>⚠️ 6. Limitation of Liability</h2>
+                <p>To the maximum extent permitted by applicable law, <strong>CBTI shall not be liable</strong> for any:</p>
+                <div class="ip-list">
+                    <div class="ip-item">
+                        <div class="emoji">💸</div>
+                        <div>Indirect damages</div>
+                    </div>
+                    <div class="ip-item">
+                        <div class="emoji">🔌</div>
+                        <div>Incidental damages</div>
+                    </div>
+                    <div class="ip-item">
+                        <div class="emoji">⚡</div>
+                        <div>Special damages</div>
+                    </div>
+                    <div class="ip-item">
+                        <div class="emoji">📉</div>
+                        <div>Consequential damages</div>
+                    </div>
+                </div>
+                <p>Arising out of or in connection with your use or inability to use the App.</p>
+            </div>
+
+            <div class="section">
+                <h2>⚖️ 7. Governing Law</h2>
+                <p>This Agreement shall be governed by and construed in accordance with the laws of the jurisdiction in which CBTI is registered, <strong>excluding its conflict of law rules</strong>.</p>
+            </div>
+
+            <div class="section">
+                <h2>📞 8. Contact Information</h2>
+                <p>If you have any questions about this Agreement, please contact us:</p>
+<div class="contact-box">
+                    <h3>CBTI</h3>
+                    <div class="contact-item">🌐 <strong>Website:</strong> <a href="https://cbti.one" style="color: white;">https://cbti.one
+        </div>
+
+        <div class="footer">
+            <p><strong>Thank you for using CBTI! 🎉</strong></p>
+            <p>By continuing to use our App, you acknowledge that you have read, understood, and agree to be bound by this Agreement.</p>
+            <div style="margin-top: 20px;">
+                <span class="tag">EULA</span>
+                <span class="tag">Legal</span>
+                <span class="tag">Terms of Service</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

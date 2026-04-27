@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - CBTI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            font-size: 1.5em;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+        .header .meta {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .meta-item {
+            display: inline-block;
+            margin: 5px 15px;
+            padding: 5px 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+        }
+
+        .content {
+            padding: 40px 50px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h2 {
+            color: #ee0979;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #ee0979;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .data-table th {
+            background: #ee0979;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .data-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .data-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .data-table tr:hover {
+            background: #fff5f8;
+        }
+
+        .use-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .use-list li {
+            padding: 12px 15px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border-left: 4px solid #ff6a00;
+            border-radius: 0 10px 10px 0;
+            color: #555;
+        }
+
+        .disclosure-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .disclosure-table th {
+            background: #ff6a00;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .disclosure-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .disclosure-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .info-box {
+            background: #d1ecf1;
+            border-left: 5px solid #17a2b8;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .blockchain-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .blockchain-list li {
+            padding: 12px 15px;
+            margin: 8px 0;
+            background: #fff5f8;
+            border-left: 4px solid #ee0979;
+            border-radius: 0 10px 10px 0;
+            color: #555;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .contact-box h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .footer p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .additional-links {
+            margin: 20px 0;
+        }
+
+        .additional-links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background: #ee0979;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background 0.3s;
+        }
+
+        .additional-links a:hover {
+            background: #ff6a00;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 25px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .section h2 {
+                font-size: 1.5em;
+            }
+
+            .data-table,
+            .disclosure-table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔒 Privacy Policy</h1>
+            <div class="subtitle">CBTI</div>
+            <div class="meta">
+                <span class="meta-item">📅 Last Updated: March 24, 2026</span>
+                <span class="meta-item">📦 Package: app.cbti.one</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>📋 Introduction</h2>
+                <p><strong>CBTI</strong> ("we," "us," or "our") operates the <strong>CBTI</strong> mobile application (the "<strong>App</strong>").</p>
+                <p>This Privacy Policy informs you of our policies regarding the <strong>collection, use, and disclosure</strong> of personal data when you use our Service and the choices you have associated with that data.</p>
+                <div class="info-box">
+                    <strong>🔐 We are committed to protecting your privacy and ensuring the security of your personal information.</strong>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📊 1. Information Collection and Use</h2>
+                <p>We collect several different types of information for various purposes to provide and improve our Service to you.</p>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Data Type</th>
+                            <th>Description</th>
+                            <th>Examples</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>👤 <strong>Personal Data</strong></td>
+                            <td>Information that can identify you</td>
+                            <td>• Wallet address<br>• Email address<br>• Device information</td>
+                        </tr>
+                        <tr>
+                            <td>📈 <strong>Usage Data</strong></td>
+                            <td>Information on how the Service is used</td>
+                            <td>• IP address<br>• Device type<br>• Operating system<br>• Diagnostic data</td>
+                        </tr>
+                        <tr>
+                            <td>🔗 <strong>Blockchain Data</strong></td>
+                            <td>Public blockchain information</td>
+                            <td>• Wallet address<br>• Transaction data<br>• Smart contract interactions</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>🎯 2. Use of Data</h2>
+                <p><strong>CBTI</strong> uses the collected data for various purposes:</p>
+                <ul class="use-list">
+                    <li>✅ To provide and maintain the Service</li>
+                    <li>📢 To notify you about changes to our Service</li>
+                    <li>💬 To provide customer care and support</li>
+                    <li>📊 To monitor the usage of the Service</li>
+                    <li>🔧 To detect, prevent, and address technical issues</li>
+                    <li>💱 To facilitate blockchain activities on the Solana network</li>
+                    <li>🚀 To improve and develop new features</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>🌐 3. Data Transfer and Storage</h2>
+                <p>Your information, including Personal Data, may be:</p>
+                <ul class="use-list">
+                    <li>🔄 Transferred to computers located outside of your state, province, or country</li>
+                    <li>💾 Maintained on servers in different jurisdictions</li>
+                    <li>🛡️ Protected in accordance with this Privacy Policy</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Note:</strong> Data protection laws may differ between jurisdictions. We take all steps reasonably necessary to ensure your data is treated securely.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📢 4. Disclosure of Data</h2>
+                <p>We may disclose your Personal Data in the <strong>good faith belief</strong> that such action is necessary to:</p>
+                <table class="disclosure-table">
+                    <thead>
+                        <tr>
+                            <th>Purpose</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>⚖️ <strong>Legal Obligation</strong></td>
+                            <td>To comply with applicable laws and regulations</td>
+                        </tr>
+                        <tr>
+                            <td>🛡️ <strong>Rights Protection</strong></td>
+                            <td>To protect and defend the rights or property of CBTI</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ul class="use-list" style="margin-top: 15px;">
+                    <li>🔍 To prevent or investigate possible wrongdoing in connection with the Service</li>
+                    <li>🤝 To protect the rights and safety of our users</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>🔐 5. Security of Data</h2>
+                <p>The security of your data is <strong>important to us</strong>, but please remember:</p>
+                <div class="warning-box">
+                    <strong>⚠️ No method of transmission over the Internet or method of electronic storage is 100% secure.</strong>
+                </div>
+                <p>While we strive to use commercially acceptable means to protect your Personal Data:</p>
+                <ul class="use-list">
+                    <li>🔒 We implement industry-standard security measures</li>
+                    <li>🛡️ We regularly update our security protocols</li>
+                    <li>🔑 We cannot guarantee absolute security</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>⛓️ 6. Blockchain Transactions</h2>
+                <p><strong>Please be aware:</strong></p>
+                <ul class="blockchain-list">
+                    <li>💸 All transactions conducted through the App are recorded on the <strong>Solana blockchain</strong></li>
+                    <li>👁️ Your wallet address and transaction history are <strong>publicly visible</strong></li>
+                    <li>🔍 Anyone with access to the blockchain can view your transaction data</li>
+                    <li>⚠️ This is a fundamental characteristic of blockchain technology</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>👶 7. Children's Privacy</h2>
+                <ul class="use-list">
+                    <li>👶🏻 Our Service does <strong>not</strong> address anyone under the age of <strong>13</strong></li>
+                    <li>🚫 We do <strong>not</strong> knowingly collect personally identifiable information from children under 13</li>
+                    <li>📧 If you are a parent or guardian and believe your child has provided us with personal data, please contact us immediately</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>🔄 8. Changes to This Privacy Policy</h2>
+                <p>We may update our Privacy Policy from time to time:</p>
+                <ul class="use-list">
+                    <li>📝 Changes will be posted on this page</li>
+                    <li>📅 The "Last Updated" date will be revised</li>
+                    <li>📢 We will notify you of any significant changes</li>
+                    <li>✅ Your continued use of the App after changes constitutes acceptance</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>📞 9. Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, please contact us:</p>
+                <div class="contact-box">
+                    <h3>CBTI</h3>
+                    <div class="contact-item">🌐 <strong>Website:</strong> <a href="https://cbti.one" style="color: white;">https://cbti.one</a></div>
+                    <div class="contact-item">📦 <strong>Package:</strong> app.cbti.one</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📚 Additional Resources</h2>
+                <div class="additional-links" style="text-align: center;">
+                    <a href="https://cbti.one/eula">📄 End User License Agreement</a>
+                    <a href="https://cbti.one/ip">©️ Intellectual Property Statement</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><em>Your privacy is important to us. We are committed to protecting your personal information and being transparent about our data practices.</em></p>
+            <p><strong>Last Updated:</strong> March 24, 2026</p>
+            <div style="margin-top: 20px;">
+                <span style="display: inline-block; padding: 5px 15px; background: #ee0979; color: white; border-radius: 20px; font-size: 0.85em; margin: 5px;">Privacy Policy</span>
+                <span style="display: inline-block; padding: 5px 15px; background: #ff6a00; color: white; border-radius: 20px; font-size: 0.85em; margin: 5px;">Data Protection</span>
+                <span style="display: inline-block; padding: 5px 15px; background: #ee0979; color: white; border-radius: 20px; font-size: 0.85em; margin: 5px;">GDPR Compliant</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

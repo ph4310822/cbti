@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intellectual Property & Ownership Statement - CBTI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            font-size: 1.5em;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+        .header .meta {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .meta-item {
+            display: inline-block;
+            margin: 5px 15px;
+            padding: 5px 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+        }
+
+        .content {
+            padding: 40px 50px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h2 {
+            color: #11998e;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #11998e;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .ownership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .ownership-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #11998e;
+            transition: transform 0.2s;
+        }
+
+        .ownership-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(17, 153, 142, 0.2);
+        }
+
+        .ownership-item .emoji {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .copyright-box {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px 0;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .compliance-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .compliance-table th {
+            background: #11998e;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .compliance-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .compliance-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .compliance-table tr:hover {
+            background: #e9f7f6;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #28a745;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .opensource-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .opensource-table th {
+            background: #38ef7d;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .opensource-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .opensource-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .license-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #11998e;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85em;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .contact-box h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .platform-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .platform-item {
+            background: #f8f9fa;
+            padding: 15px 25px;
+            border-radius: 30px;
+            border: 2px solid #11998e;
+            font-weight: 600;
+            color: #11998e;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .footer p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 25px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .section h2 {
+                font-size: 1.5em;
+            }
+
+            .ownership-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .platform-list {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>©️ Intellectual Property & Ownership Statement</h1>
+            <div class="subtitle">CBTI</div>
+            <div class="meta">
+                <span class="meta-item">📅 Date: March 24, 2026</span>
+                <span class="meta-item">📦 Package: app.cbti.one</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>🏛️ 1. Declaration of Ownership</h2>
+                <p><strong>CBTI</strong> (the "Company") hereby declares that it is the <strong>sole creator, developer, and legal owner</strong> of the mobile application titled <strong>CBTI</strong>.</p>
+                <p>All rights, titles, and interests in and to the application are the <strong>exclusive property of CBTI</strong>, including:</p>
+                <div class="ownership-grid">
+                    <div class="ownership-item">
+                        <div class="emoji">💻</div>
+                        <div>Source code</div>
+                    </div>
+                    <div class="ownership-item">
+                        <div class="emoji">🔢</div>
+                        <div>Object code</div>
+                    </div>
+                    <div class="ownership-item">
+                        <div class="emoji">🏗️</div>
+                        <div>Software architecture</div>
+                    </div>
+                    <div class="ownership-item">
+                        <div class="emoji">🎨</div>
+                        <div>User interface design</div>
+                    </div>
+                    <div class="ownership-item">
+                        <div class="emoji">🖼️</div>
+                        <div>Graphics and visuals</div>
+                    </div>
+                    <div class="ownership-item">
+                        <div class="emoji">🏷️</div>
+                        <div>Logos and branding</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📜 2. Copyright Notice</h2>
+                <p>The application and all related materials are protected by <strong>international copyright laws</strong>.</p>
+                <div class="copyright-box">
+                    Copyright © 2026 CBTI. All Rights Reserved.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🏷️ 3. Trademark Information</h2>
+                <p>The name <strong>"CBTI"</strong> and any associated logos, icons, and branding elements are:</p>
+                <ul style="list-style: none; padding-left: 0; margin-top: 20px;">
+                    <li style="padding: 10px 0; padding-left: 35px; position: relative; color: #555;">
+                        <span style="position: absolute; left: 0; top: 10px; width: 25px; height: 25px; background: #11998e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">📌</span>
+                        Trademarks or registered trademarks of <strong>CBTI</strong>
+                    </li>
+                    <li style="padding: 10px 0; padding-left: 35px; position: relative; color: #555;">
+                        <span style="position: absolute; left: 0; top: 10px; width: 25px; height: 25px; background: #11998e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">🚫</span>
+                        Unauthorized use of these trademarks is <strong>strictly prohibited</strong>
+                    </li>
+                    <li style="padding: 10px 0; padding-left: 35px; position: relative; color: #555;">
+                        <span style="position: absolute; left: 0; top: 10px; width: 25px; height: 25px; background: #11998e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">⚖️</span>
+                        Protected under applicable trademark laws
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>✅ 4. Legal Compliance</h2>
+                <p><strong>CBTI</strong> confirms the following compliance standards:</p>
+                <table class="compliance-table">
+                    <thead>
+                        <tr>
+                            <th>Compliance Area</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🌍 <strong>Local Regulations</strong></td>
+                            <td><span class="status-badge">Complies with all local software distribution regulations</span></td>
+                        </tr>
+                        <tr>
+                            <td>🌐 <strong>International Standards</strong></td>
+                            <td><span class="status-badge">Meets international software distribution requirements</span></td>
+                        </tr>
+                        <tr>
+                            <td>📦 <strong>Third-Party Licenses</strong></td>
+                            <td><span class="status-badge">Possesses all necessary licenses for third-party libraries</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ul style="list-style: none; padding-left: 0; margin-top: 20px;">
+                    <li style="padding: 10px 0; padding-left: 35px; position: relative; color: #555;">
+                        <span style="position: absolute; left: 0; top: 10px; width: 25px; height: 25px; background: #11998e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">🔒</span>
+                        The application <strong>does not infringe</strong> upon the intellectual property rights of any third party
+                    </li>
+                    <li style="padding: 10px 0; padding-left: 35px; position: relative; color: #555;">
+                        <span style="position: absolute; left: 0; top: 10px; width: 25px; height: 25px; background: #11998e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">📋</span>
+                        All necessary permissions and authorizations have been obtained
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>📚 5. Open Source Components</h2>
+                <p>This application utilizes the following open-source components and libraries:</p>
+                <table class="opensource-table">
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Purpose</th>
+                            <th>License</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>⚛️ <strong>React Native</strong></td>
+                            <td>Mobile app framework</td>
+                            <td><span class="license-badge">MIT License</span></td>
+                        </tr>
+                        <tr>
+                            <td>📱 <strong>Expo</strong></td>
+                            <td>Development platform</td>
+                            <td><span class="license-badge">MIT License</span></td>
+                        </tr>
+                        <tr>
+                            <td>🔗 <strong>Solana Web3.js</strong></td>
+                            <td>Blockchain integration</td>
+                            <td><span class="license-badge">MIT License</span></td>
+                        </tr>
+                        <tr>
+                            <td>🧭 <strong>React Navigation</strong></td>
+                            <td>Navigation system</td>
+                            <td><span class="license-badge">MIT License</span></td>
+                        </tr>
+                        <tr>
+                            <td>🎨 <strong>Other Libraries</strong></td>
+                            <td>Various functionality</td>
+                            <td><span class="license-badge">Per OS Licenses</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="text-align: center; color: #11998e; font-weight: 600; margin-top: 20px;">
+                    ✅ All open-source components are used in accordance with their respective licenses.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>🏢 6. Authorized Representative</h2>
+                <p>This document serves as <strong>formal verification</strong> for the following platforms:</p>
+                <div class="platform-list">
+                    <div class="platform-item">🍎 Apple App Store</div>
+                    <div class="platform-item">🤖 Google Play Store</div>
+                    <div class="platform-item">📲 Other Distribution Platforms</div>
+                </div>
+                <p style="margin-top: 20px;">For further verification or inquiries, please contact:</p>
+                <div class="contact-box">
+                    <h3>CBTI</h3>
+                    <div class="contact-item">🌐 <strong>Website:</strong> <a href="https://cbti.one" style="color: white;">https://cbti.one</a></div>
+                    <div class="contact-item">📦 <strong>Package:</strong> app.cbti.one</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><em>This document is legally binding and serves as proof of ownership and intellectual property rights.</em></p>
+            <div style="margin-top: 20px;">
+                <span class="status-badge">Legal Document</span>
+                <span class="status-badge">IP Rights</span>
+                <span class="status-badge">Copyright 2026</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
