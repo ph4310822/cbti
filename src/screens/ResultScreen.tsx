@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Image,
   ImageSourcePropType,
+  Modal,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { Clipboard } from 'react-native';
@@ -60,7 +61,7 @@ const getChainColor = (chain: string) => {
     E: '#627EEA',
     S: '#9945FF',
     B: '#F7931A',
-    T: '#EB122A',
+    N: '#F3BA2F',
   };
   return colors[chain] || '#58A6FF';
 };
@@ -70,6 +71,11 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ result, onRestart })
   const chainColor = getChainColor(result.chain);
   const chainInfo = CHAIN_INFO[result.chain];
   const [showToast, setShowToast] = useState(false);
+  const [showPromotion, setShowPromotion] = useState(false);
+
+  useEffect(() => {
+    setShowPromotion(true);
+  }, []);
 
   const dimensionLabels = {
     risk: result.risk === 'D' ? t('result.riskDegen') : t('result.riskHodler'),
@@ -202,6 +208,42 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ result, onRestart })
           </View>
         </View>
       )}
+
+      {/* Promotion Modal */}
+      <Modal
+        visible={showPromotion}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setShowPromotion(false)}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <TouchableOpacity
+              style={styles.modalClose}
+              onPress={() => setShowPromotion(false)}
+            >
+              <Text style={styles.modalCloseText}>×</Text>
+            </TouchableOpacity>
+            <Text style={styles.modalEmoji}>🪂</Text>
+            <Text style={styles.modalTitle}>{t('result.promotionTitle')}</Text>
+            <Text style={styles.modalText}>{t('result.promotionText')}</Text>
+            <TouchableOpacity
+              style={styles.modalButton}
+              onPress={() => {
+                setShowPromotion(false);
+              }}
+            >
+              <Text style={styles.modalButtonText}>{t('result.promotionButton')}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.modalRemindMe}
+              onPress={() => setShowPromotion(false)}
+            >
+              <Text style={styles.modalRemindMeText}>{t('result.promotionLater')}</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 };
@@ -390,5 +432,74 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: '600',
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalContent: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 20,
+    padding: 32,
+    margin: 24,
+    alignItems: 'center',
+    width: '85%',
+  },
+  modalClose: {
+    position: 'absolute',
+    top: 12,
+    right: 16,
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: '#F2F2F7',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalCloseText: {
+    fontSize: 20,
+    color: '#8E8E93',
+    lineHeight: 22,
+  },
+  modalEmoji: {
+    fontSize: 48,
+    marginBottom: 16,
+  },
+  modalTitle: {
+    fontSize: 22,
+    fontWeight: '700',
+    color: '#1D1D1F',
+    textAlign: 'center',
+    marginBottom: 12,
+  },
+  modalText: {
+    fontSize: 16,
+    color: '#6E6E73',
+    textAlign: 'center',
+    lineHeight: 24,
+    marginBottom: 24,
+  },
+  modalButton: {
+    backgroundColor: '#000000',
+    paddingVertical: 16,
+    paddingHorizontal: 32,
+    borderRadius: 12,
+    width: '100%',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  modalButtonText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  modalRemindMe: {
+    paddingVertical: 8,
+  },
+  modalRemindMeText: {
+    color: '#8E8E93',
+    fontSize: 14,
   },
 });

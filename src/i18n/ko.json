@@ -42,7 +42,11 @@
     "shareButton": "결과 공유",
     "restartButton": "다시 테스트",
     "copiedToast": "클립보드에 복사되었습니다. 공유하세요!",
-    "shareText": "cbti.one에서 제 암호화폐 MBTI는 {{type}} ({{title}})입니다. 직접 테스트해보세요: https://cbti.one/"
+    "shareText": "cbti.one에서 제 암호화폐 MBTI는 {{type}} ({{title}})입니다. 직접 테스트해보세요: https://cbti.one/",
+    "promotionTitle": "$CBTI 에어드롭 받기!",
+    "promotionText": "CBTI 스크린샷을 X에 게시하고 @cbti_1을 태그하면 $CBTI 에어드롭을 받을 수 있습니다!",
+    "promotionButton": "ok",
+    "promotionLater": "나중에"
   },
   "questions": {
     "q1": "혼석도에 갇혀 하나의 온체인 지갑만 유지할 수 있다면, 어느 것을 선택하시겠습니까?",

@@ -6,7 +6,7 @@ export interface Question {
 }
 
 export interface Result {
-  chain: 'E' | 'S' | 'B' | 'T';
+  chain: 'E' | 'S' | 'B' | 'N';
   risk: 'D' | 'H';
   decision: 'R' | 'F';
   habit: 'N' | 'C';
@@ -27,7 +27,7 @@ export const CHAIN_INFO: Record<string, ChainInfo> = {
   E: { name: 'EVM', fullName: 'Ethereum', descriptionKey: 'chains.E' },
   S: { name: 'Solana', fullName: 'Solana', descriptionKey: 'chains.S' },
   B: { name: 'Bitcoin', fullName: 'Bitcoin', descriptionKey: 'chains.B' },
-  T: { name: 'Tron', fullName: 'Tron', descriptionKey: 'chains.T' },
+  N: { name: 'BNB Chain', fullName: 'BNB Chain', descriptionKey: 'chains.N' },
 };
 
 export const PROFILES: Record<string, { titleKey: string; descriptionKey: string }> = {
@@ -55,14 +55,14 @@ export const PROFILES: Record<string, { titleKey: string; descriptionKey: string
   'B-D-R-C': { titleKey: 'profiles.B-D-R-C.title', descriptionKey: 'profiles.B-D-R-C.description' },
   'B-D-F-N': { titleKey: 'profiles.B-D-F-N.title', descriptionKey: 'profiles.B-D-F-N.description' },
   'B-D-F-C': { titleKey: 'profiles.B-D-F-C.title', descriptionKey: 'profiles.B-D-F-C.description' },
-  'T-H-R-N': { titleKey: 'profiles.T-H-R-N.title', descriptionKey: 'profiles.T-H-R-N.description' },
-  'T-H-R-C': { titleKey: 'profiles.T-H-R-C.title', descriptionKey: 'profiles.T-H-R-C.description' },
-  'T-H-F-N': { titleKey: 'profiles.T-H-F-N.title', descriptionKey: 'profiles.T-H-F-N.description' },
-  'T-H-F-C': { titleKey: 'profiles.T-H-F-C.title', descriptionKey: 'profiles.T-H-F-C.description' },
-  'T-D-R-N': { titleKey: 'profiles.T-D-R-N.title', descriptionKey: 'profiles.T-D-R-N.description' },
-  'T-D-R-C': { titleKey: 'profiles.T-D-R-C.title', descriptionKey: 'profiles.T-D-R-C.description' },
-  'T-D-F-N': { titleKey: 'profiles.T-D-F-N.title', descriptionKey: 'profiles.T-D-F-N.description' },
-  'T-D-F-C': { titleKey: 'profiles.T-D-F-C.title', descriptionKey: 'profiles.T-D-F-C.description' },
+  'N-H-R-N': { titleKey: 'profiles.N-H-R-N.title', descriptionKey: 'profiles.N-H-R-N.description' },
+  'N-H-R-C': { titleKey: 'profiles.N-H-R-C.title', descriptionKey: 'profiles.N-H-R-C.description' },
+  'N-H-F-N': { titleKey: 'profiles.N-H-F-N.title', descriptionKey: 'profiles.N-H-F-N.description' },
+  'N-H-F-C': { titleKey: 'profiles.N-H-F-C.title', descriptionKey: 'profiles.N-H-F-C.description' },
+  'N-D-R-N': { titleKey: 'profiles.N-D-R-N.title', descriptionKey: 'profiles.N-D-R-N.description' },
+  'N-D-R-C': { titleKey: 'profiles.N-D-R-C.title', descriptionKey: 'profiles.N-D-R-C.description' },
+  'N-D-F-N': { titleKey: 'profiles.N-D-F-N.title', descriptionKey: 'profiles.N-D-F-N.description' },
+  'N-D-F-C': { titleKey: 'profiles.N-D-F-C.title', descriptionKey: 'profiles.N-D-F-C.description' },
 };
 
 export const QUESTIONS: Question[] = [
