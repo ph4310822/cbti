@@ -1,4 +1,4 @@
-package com.hpeter826618.CBTI
+package app.cbti.one
 
 import android.app.Application
 import android.content.res.Configuration

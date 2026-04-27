@@ -13,6 +13,41 @@ import {
 import { useTranslation } from 'react-i18next';
 import { Clipboard } from 'react-native';
 
+const PERSONA_PORTRAITS: Record<string, ImageSourcePropType> = {
+  'EDFC': require('../../assets/portraits/E-D-F-C.png'),
+  'EDFN': require('../../assets/portraits/E-D-F-N.jpg'),
+  'EDRC': require('../../assets/portraits/E-D-R-C.jpg'),
+  'EDRN': require('../../assets/portraits/E-D-R-N.png'),
+  'EHFC': require('../../assets/portraits/E-H-F-C.jpg'),
+  'EHFN': require('../../assets/portraits/E-H-F-N.png'),
+  'EHRC': require('../../assets/portraits/E-H-R-C.jpg'),
+  'EHRN': require('../../assets/portraits/E-H-R-N.jpg'),
+  'SDFC': require('../../assets/portraits/S-D-F-C.jpg'),
+  'SDFN': require('../../assets/portraits/S-D-F-N.jpg'),
+  'SDRC': require('../../assets/portraits/S-D-R-C.png'),
+  'SDRN': require('../../assets/portraits/S-D-R-N.jpg'),
+  'SHFC': require('../../assets/portraits/S-H-F-C.png'),
+  'SHFN': require('../../assets/portraits/S-H-F-N.jpeg'),
+  'SHRC': require('../../assets/portraits/S-H-R-C.png'),
+  'SHRN': require('../../assets/portraits/S-H-R-N.jpg'),
+  'BDFC': require('../../assets/portraits/B-D-F-C.jpg'),
+  'BDFN': require('../../assets/portraits/B-D-F-N.jpg'),
+  'BDRC': require('../../assets/portraits/B-D-R-C.jpg'),
+  'BDRN': require('../../assets/portraits/B-D-R-N.jpg'),
+  'BHFC': require('../../assets/portraits/B-H-F-C.jpg'),
+  'BHFN': require('../../assets/portraits/B-H-F-N.jpg'),
+  'BHRC': require('../../assets/portraits/B-H-R-C.jpg'),
+  'BHRN': require('../../assets/portraits/B-H-R-N.webp'),
+  'NDFC': require('../../assets/portraits/N-D-F-C.jpeg'),
+  'NDFN': require('../../assets/portraits/N-D-F-N.jpg'),
+  'NDRC': require('../../assets/portraits/N-D-R-C.jpg'),
+  'NDRN': require('../../assets/portraits/N-D-R-N.png'),
+  'NHFC': require('../../assets/portraits/N-H-F-C.png'),
+  'NHFN': require('../../assets/portraits/N-H-F-N.jpg'),
+  'NHRC': require('../../assets/portraits/N-H-R-C.jpg'),
+  'NHRN': require('../../assets/portraits/N-H-R-N.jpg'),
+};
+
 const PERSONA_IMAGES: ImageSourcePropType[] = [
   require('../../assets/1.png'),
   require('../../assets/2.png'),
@@ -129,6 +164,20 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ result, onRestart })
         <View style={[styles.card, { borderLeftColor: chainColor }]}>
           <Text style={styles.title}>{chainInfo.name} · {t(chainInfo.descriptionKey)}</Text>
           <Text style={styles.description}>{t(result.descriptionKey)}</Text>
+        </View>
+
+        {/* Character Section */}
+        <View style={[styles.characterCard, { borderColor: chainColor }]}>
+          
+          <View style={[styles.characterDot, { backgroundColor: chainColor }]} />
+          <Text style={styles.characterLabel}>{t('result.characterFigure')}</Text>
+<Image
+            source={PERSONA_PORTRAITS[`${result.chain}${result.risk}${result.decision}${result.habit}`]}
+            style={styles.characterPortrait}
+            resizeMode="contain"
+          />
+          <Text style={styles.characterName}>{t(result.figureKey)}</Text>
+          <Text style={styles.characterDesc}>{t(result.fullDescKey)}</Text>
         </View>
 
         {/* Tagline */}
@@ -293,6 +342,48 @@ const styles = StyleSheet.create({
     padding: 24,
     borderLeftWidth: 4,
     marginBottom: 24,
+  },
+  characterCard: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 16,
+    padding: 20,
+    marginBottom: 24,
+    borderWidth: 1,
+    alignItems: 'center',
+  },
+  characterPortrait: {
+    width: 120,
+    height: 120,
+    marginTop: 12,
+    marginBottom: 6,
+    borderRadius: 60,
+  },
+  characterDot: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    marginBottom: 12,
+  },
+  characterLabel: {
+    color: '#6E6E73',
+    fontSize: 12,
+    fontWeight: '600',
+    textTransform: 'uppercase',
+    letterSpacing: 1,
+    marginBottom: 4,
+  },
+  characterName: {
+    color: '#1D1D1F',
+    fontSize: 22,
+    fontWeight: '800',
+    marginBottom: 12,
+    textAlign: 'center',
+  },
+  characterDesc: {
+    color: '#6E6E73',
+    fontSize: 15,
+    lineHeight: 22,
+    textAlign: 'center',
   },
   title: {
     color: '#1D1D1F',

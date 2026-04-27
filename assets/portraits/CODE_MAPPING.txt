@@ -1,0 +1,58 @@
+CRYPTO FIGURES PORTRAIT GALLERY - CODE MAPPING
+==============================================
+
+Code Format: [ECOSYSTEM]-[HOLDER_TYPE]-[RISK_LEVEL]-[NARRATIVE]
+- ECOSYSTEM: N (BNB/Binance), B (Bitcoin), S (Solana), E (Ethereum)
+- HOLDER_TYPE: H (Holder), D (Defi/Derivative)
+- RISK_LEVEL: R (Risk-Averse), F (Risk-Seeking)
+- NARRATIVE: N (Narrative-Driven), C (Conservative/Compliant)
+
+BINANCE ECOSYSTEM (N-*)
+=======================
+N-H-R-N: Chef Bun (Pancake) - DeFi Deep Participant
+N-H-R-C: CZ (Changpeng Zhao) - Ecosystem Builder
+N-H-F-N: Yi He - BNB Customer Service Queen
+N-H-F-C: Binance Loyalist - BNB HODLer
+N-D-R-N: Pentoshi - Crypto Trader
+N-D-R-C: Miles Deutscher - Crypto Analyst
+N-D-F-N: BSC Script Crew - Community Developers
+N-D-F-C: BscGemz - (No portrait available)
+
+BITCOIN ECOSYSTEM (B-*)
+=======================
+B-H-R-N: Adam Back - Cypherpunk Pioneer
+B-H-R-C: Michael Saylor - Bitcoin Corporate Advocate
+B-H-F-N: Casey Rodarmor - Ordinals Creator
+B-H-F-C: Nayib Bukele - Bitcoin President
+B-D-R-N: Jeff (Merlin) - Bitcoin Layer 2 Developer
+B-D-R-C: Arthur Hayes - Derivatives Trading Pioneer
+B-D-F-N: The Masses (a Whale) - Large-Scale Crypto Investor
+B-D-F-C: AngeloBTC - Bitcoin Maximalist
+
+SOLANA ECOSYSTEM (S-*)
+======================
+S-H-R-N: Anatoly Yakovenko - Solana Founder & Engineer
+S-H-R-C: Raoul Pal - Macro Investor
+S-H-F-N: Mert Mumtaz - Solana Infrastructure Developer (No portrait available)
+S-H-F-C: Chris Burniske - Digital Asset Strategist
+S-D-R-N: Jito Operator - Solana Infrastructure
+S-D-R-C: Bluntz - Veteran Trader
+S-D-F-N: Ansem - Legendary Crypto Trader
+S-D-F-C: Hsaka - Momentum Trader
+
+ETHEREUM ECOSYSTEM (E-*)
+========================
+E-H-R-N: Vitalik Buterin - Ethereum Creator
+E-H-R-C: Larry Fink - BlackRock CEO
+E-H-F-N: Punk6529 - NFT Collector
+E-H-F-C: Lark Davis - Crypto Educator (No portrait available)
+E-D-R-N: Andre Cronje - DeFi Architect
+E-D-R-C: Miles Deutscher - Deep Research Blogger
+E-D-F-N: Pacman (Blur) - Blur Founder
+E-D-F-C: GCR (Gigachad) - Legendary Trader
+
+OTHER FIGURES
+=============
+Hot-Chaser: Momentum Chaser - Crypto Trader
+
+TOTAL: 30 portraits collected (2 figures without available portraits)

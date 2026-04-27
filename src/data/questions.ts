@@ -14,6 +14,8 @@ export interface Result {
   descriptionKey: string;
   taglineKey: string;
   adviceKey: string;
+  figureKey: string;
+  fullDescKey: string;
   imageIndex: number;
 }
 

@@ -97,6 +97,8 @@ export function calculateResult(answers: number[]): Result {
     descriptionKey: profile.descriptionKey,
     taglineKey: `taglines.${profileKey}`,
     adviceKey: `advice.${maxChain}-${risk}`,
+    figureKey: `characters.${profileKey}.figure`,
+    fullDescKey: `characters.${profileKey}.fullDesc`,
     imageIndex: PROFILE_IMAGE_MAP[profileKey] ?? 1,
   };
 }
