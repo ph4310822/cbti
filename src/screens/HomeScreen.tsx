@@ -7,11 +7,13 @@ import {
   TouchableOpacity,
   Image,
   Linking,
+  ScrollView,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { HeaderBar } from '../components/HeaderBar';
 
 const HOME_LOGO = require('../../assets/logo.png');
+const HOME_BANNER = require('../../assets/b2.png');
 
 interface HomeScreenProps {
   onStart: () => void;
@@ -23,7 +25,10 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onStart }) => {
   return (
     <SafeAreaView style={styles.container}>
       <HeaderBar />
-      <View style={styles.content}>
+      <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+        {/* Banner */}
+        {/* <Image source={HOME_BANNER} style={styles.banner} resizeMode="contain" /> */}
+
         {/* Logo / Title */}
         <View style={styles.header}>
           <Image source={HOME_LOGO} style={styles.logo} resizeMode="contain" />
@@ -85,8 +90,17 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onStart }) => {
           <Text style={styles.xButtonText}>{t('home.followUs')}</Text>
         </TouchableOpacity>
 
+        {/* Buy $CBTI Button */}
+        <TouchableOpacity
+          style={styles.buyButton}
+          onPress={() => Linking.openURL('https://pump.fun/coin/Ejus6sxvPri5UTPe9648a4tYRedZ2g9zCtuyA7dipump')}
+          activeOpacity={0.8}
+        >
+          <Text style={styles.buyButtonText}>{t('home.buyCBTI')}</Text>
+        </TouchableOpacity>
+
         <Text style={styles.footer}>{t('home.footer')}</Text>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -97,23 +111,26 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5F5F7',
   },
   content: {
-    flex: 1,
     padding: 24,
-    justifyContent: 'center',
     alignItems: 'center',
   },
   header: {
     alignItems: 'center',
-    marginBottom: 48,
+    marginBottom: 24,
+  },
+  banner: {
+    width: '100%',
+    height: 120,
+    marginBottom: 16,
   },
   logo: {
-    width: 100,
-    height: 100,
-    marginBottom: 20,
+    width: 80,
+    height: 80,
+    marginBottom: 12,
   },
   title: {
     color: '#1D1D1F',
-    fontSize: 48,
+    fontSize: 36,
     fontWeight: '800',
     letterSpacing: 4,
     marginBottom: 8,
@@ -207,6 +224,18 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   xButtonText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  buyButton: {
+    backgroundColor: '#5B2D8E',
+    paddingHorizontal: 32,
+    paddingVertical: 14,
+    borderRadius: 12,
+    marginBottom: 16,
+  },
+  buyButtonText: {
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: '600',
